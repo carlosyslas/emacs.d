@@ -6,6 +6,9 @@
     (backward-kill-word 1)))
 
 
+;; GoTo line
+(global-set-key (kbd "C-x g") 'goto-line)
+
 ;; A more comfortable backspace
 (global-unset-key (kbd "C-h"))
 (global-set-key (kbd "C-h") 'backward-delete-char)
@@ -13,6 +16,7 @@
 
 ;; A better M-x
 (global-set-key (kbd "C-x m") 'smex)
+(global-set-key (kbd "C-c m") 'smex)
 
 ;; Multi-term
 (global-set-key (kbd "C-x t") 'multi-term-next) ;; May change it?
