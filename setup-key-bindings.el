@@ -21,4 +21,4 @@
 ;; Multi-term
 (global-set-key (kbd "C-x t") 'multi-term-next) ;; May change it?
 
-(provide 'setup-key-bingings)
+(provide 'setup-key-bindings)
