@@ -20,5 +20,12 @@
 
 ;; Multi-term
 (global-set-key (kbd "C-x t") 'multi-term-next) ;; May change it?
+;; (global-set-key (kbd "C-x t") 'eshell) Should check which to use
+
+;; Previeous window
+(global-set-key (kbd "C-x M-o") 'previous-multiframe-window)
+
+;; Goto line
+(global-set-key (kbd "C-x g") 'goto-line)
 
 (provide 'setup-key-bindings)
