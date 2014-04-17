@@ -28,4 +28,7 @@
 ;; Goto line
 (global-set-key (kbd "C-x g") 'goto-line)
 
+;; Org-mode
+(global-set-key (kbd "<f2>") 'org-capture)
+
 (provide 'setup-key-bindings)
