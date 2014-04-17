@@ -14,6 +14,8 @@
 (require 'setup-misc)
 (require 'setup-file-associations)
 
+(require 'setup-org-mode)
+
 (when is-mac
   (require 'setup-mac-osx)) 
 (require 'setup-key-bindings)
