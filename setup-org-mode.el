@@ -5,4 +5,6 @@
          )
         ))
 
+(setq org-src-fontify-natively t)
+
 (provide 'setup-org-mode)
