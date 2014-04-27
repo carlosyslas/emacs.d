@@ -14,6 +14,12 @@
 (global-set-key (kbd "C-h") 'backward-delete-char)
 (global-set-key (kbd "M-h") 'kill-region-or-backward-word)
 
+;; New line and indent
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+;; Disable backspace, so I must use C-h
+(global-set-key (kbd "<backspace>") 'ignore)
+
 ;; A better M-x
 (global-set-key (kbd "C-x m") 'smex)
 (global-set-key (kbd "C-c m") 'smex)
