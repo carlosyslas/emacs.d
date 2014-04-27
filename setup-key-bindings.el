@@ -25,8 +25,9 @@
 (global-set-key (kbd "C-c m") 'smex)
 
 ;; Multi-term
-(global-set-key (kbd "C-x t") 'multi-term-next) ;; May change it?
-;; (global-set-key (kbd "C-x t") 'eshell) Should check which to use
+;;(global-set-key (kbd "C-x t") 'multi-term-next) ;; May change it?
+;; Eshell
+ (global-set-key (kbd "C-x t") 'eshell)
 
 ;; Previeous window
 (global-set-key (kbd "C-x M-o") 'previous-multiframe-window)
