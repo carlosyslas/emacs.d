@@ -16,9 +16,13 @@
 
 (require 'setup-org-mode)
 
+(require 'setup-eldoc)
+
 (when is-mac
   (require 'setup-mac-osx)) 
+
+;; Setup vendor. This should remain disabled until I figure out how to auto install the required packages
+(require 'setup-vendor)
+
 (require 'setup-key-bindings)
 ;; End of init.el
-
-

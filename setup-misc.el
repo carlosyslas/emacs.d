@@ -60,5 +60,12 @@
 ;; Show matching parentesis
 (show-paren-mode t)
 
+;;Linum
+(add-hook 'find-file-hook (lambda () (linum-mode 1)))
+(global-linum-mode 1)
+
+;;hl line mode
+(global-hl-line-mode)
 
 (provide 'setup-misc)
+;; End of setup-misc.el
