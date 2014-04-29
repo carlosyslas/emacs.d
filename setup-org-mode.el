@@ -7,4 +7,7 @@
 
 (setq org-src-fontify-natively t)
 
+(global-unset-key (kbd "C-o"))
+(global-set-key (kbd "C-o c") 'org-capture)
+
 (provide 'setup-org-mode)
