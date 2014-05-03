@@ -36,5 +36,10 @@
 ;; TODO move this to it's file and set up a keybinding for helm-imenu
 (js2-imenu-extras-mode)
 
+;; TODO move this to it's own file
+(require 'git-gutter-fringe+)
+;;(setq git-gutter-fr+-side 'right-fringe)
+(global-git-gutter+-mode)
+
 (provide 'setup-vendor)
 ;; End of setup-vendor.el

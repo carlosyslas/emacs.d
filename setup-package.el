@@ -20,6 +20,8 @@
                           org-pomodoro
                           ace-jump-mode
                           auto-complete
+                          fringe-helper
+                          git-gutter-fringe+
                           ))
 
 (defun ensure-package-installed (package)
