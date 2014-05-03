@@ -8,6 +8,7 @@
 ;; helm-css-scss
 ;; [may be]
 ;; helm-spotify
+;; bind-key
 
 ;; TODO: Extract smartparens to it's own file. So we mantain the vendor file clean
 
@@ -19,6 +20,8 @@
   (smartparens-global-mode 1)
   (sp-with-modes '(html-mode sgml-mode)
     (sp-local-pair "<" ">"))
+  (sp-with-modes '(org-mode)
+    (sp-local-pair "/*" "*/"))
   )
 
 (add-hook 'after-init-hook 'setup-smartparens)
