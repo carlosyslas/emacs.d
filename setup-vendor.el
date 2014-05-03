@@ -14,6 +14,10 @@
 
 (require 'setup-helm)
 
+(require 'setup-autocomplete)
+
+(require 'setup-ace-jump)
+
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
 (defun setup-smartparens ()
@@ -28,6 +32,9 @@
 
 ;; Magit
 (global-set-key (kbd "<f5>") 'magit-status)
+
+;; TODO move this to it's file and set up a keybinding for helm-imenu
+(js2-imenu-extras-mode)
 
 (provide 'setup-vendor)
 ;; End of setup-vendor.el

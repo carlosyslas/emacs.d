@@ -17,8 +17,10 @@
                           helm-css-scss
                           helm-spotify
                           bind-key
+                          org-pomodoro
+                          ace-jump-mode
+                          auto-complete
                           ))
-
 
 (defun ensure-package-installed (package)
   ""
@@ -35,5 +37,6 @@
   )
 
 (ensure-packages-installed required-packages)
+
 
 (provide 'setup-package)

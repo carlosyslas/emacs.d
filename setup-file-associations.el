@@ -1,4 +1,4 @@
-(add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp$" . sgml-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl$" . sgml-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . sgml-mode))
