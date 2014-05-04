@@ -8,6 +8,7 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (setq required-packages '(
+                          dash
                           helm
                           helm-open-github
                           guide-key
@@ -22,6 +23,25 @@
                           auto-complete
                           fringe-helper
                           git-gutter-fringe+
+                          rainbow-mode
+                          markdown-mode
+                          go-mode
+                          go-eldoc
+                          go-autocomplete
+                          ace-window
+                          expand-region
+                          ;; ERC
+                          erc-hl-nicks
+
+                          ;;A evaluar
+                          ;; flx-ido ;; Estoy casi seguro que regresare a ido pero usare helm para algunas cosas
+                          ;; web-beautify ;; Necesita nodejs y js-beautify
+                          ;; vagrant
+                          ;; projectile ;; Bastante interesante!
+                          ;; helm-projectile
+                          ;; go-projectile
+                          ;; exercism
+                          ;; ac-js2
                           ))
 
 (defun ensure-package-installed (package)
