@@ -67,5 +67,12 @@
 ;;hl line mode
 (global-hl-line-mode)
 
+;; Switch to previous buffer with c-tab
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(global-set-key (kbd "C-<tab>") 'switch-to-previous-buffer)
+
 (provide 'setup-misc)
 ;; End of setup-misc.el
