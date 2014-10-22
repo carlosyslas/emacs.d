@@ -10,7 +10,7 @@
 ;; M-j ace-window
 ;; M-z Debes usarlo. Hace un kill hasta un caracter
 
-(require 'setup-helm)
+;; (require 'setup-helm)
 
 (require 'setup-autocomplete)
 
