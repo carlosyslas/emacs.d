@@ -24,4 +24,6 @@
 ;; Setup vendor. This should remain disabled until I figure out how to auto install the required packages
 
 (require 'setup-key-bindings)
+
+(org-babel-load-file "Carlos.org")
 ;; End of init.el

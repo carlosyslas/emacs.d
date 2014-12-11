@@ -1,2 +1,7 @@
 * My Emacs configuration file
-** I decided to use literate programming for my configuration file, mainly spired by Sacha Chua, since it's easier to read an understand what's going on in my conf and what kind of packages I'm using and I'm trying to learn.
+  I decided to use literate programming for my configuration file, mainly spired by [[http://sachachua.com/][Sacha Chua]], since it's easier to read an understand what's going on in my conf and what kind of packages I'm using and I'm trying to learn.
+* Projectile
+  In order to have projectile enabled globally I have to call it's gobal-mode function.
+#+BEGIN_SRC emacs-lisp
+(projectile-global-mode)
+#+END_SRC
