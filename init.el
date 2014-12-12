@@ -1,6 +1,4 @@
-(add-to-list 'load-path user-emacs-directory) ;; ~/.emacs.d
-(setq is-mac (equal system-type 'darwin))
-
+(org-babel-load-file (expand-file-name "Carlos.org" user-emacs-directory))
 
 (require 'setup-package)
 (require 'setup-vendor)
@@ -25,5 +23,23 @@
 
 (require 'setup-key-bindings)
 
-(org-babel-load-file "Carlos.org")
+
+
+;; This file is for the local environment configuration
+;; It should contain things like environment variables setup,
+;; python virtual environments, and all kind of things that would
+;; change deppending on the current development environment.
+(let ((local-environment-setup-file (expand-file-name "local-env.el" user-emacs-directory)))
+  (when (file-exists-p local-environment-setup-file)
+    (load-file local-environment-setup-file)))
 ;; End of init.el
+
+
+
+
+
+
+
+
+
+
