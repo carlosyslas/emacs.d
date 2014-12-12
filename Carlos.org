@@ -11,6 +11,15 @@ I also gatta check if the current environment is a mac computer.
 #+begin_src emacs-lisp :tangle yes
 (setq is-mac (equal system-type 'darwin))
 #+end_src
+* Helper functions
+
+This is a set of helper functions for an easier configuration.
+
+#+begin_src emacs-lisp :tangle yes
+(defun add-to-path (dir)
+"Adds dir to the PATH environment variable"
+(setenv "PATH" (concat (format "%s:" dir) (getenv "PATH"))))
+#+end_src
 
 * Package.el
 
@@ -25,6 +34,10 @@ I also gatta check if the current environment is a mac computer.
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 #+end_src
 
+* Yasnippet
+#+begin_src emacs-lisp :tangle yes
+(yas-global-mode)
+#+end_src
 
 * Projectile
   In order to have projectile enabled globally I have to call it's gobal-mode function.
