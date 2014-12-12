@@ -1,8 +1,6 @@
 (org-babel-load-file (expand-file-name "Carlos.org" user-emacs-directory))
 
-(require 'setup-package)
 (require 'setup-vendor)
-
 
 ;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

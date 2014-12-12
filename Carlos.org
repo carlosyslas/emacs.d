@@ -20,19 +20,18 @@ This is a set of helper functions for an easier configuration.
 "Adds dir to the PATH environment variable"
 (setenv "PATH" (concat (format "%s:" dir) (getenv "PATH"))))
 #+end_src
-
-* Package.el
-
+* Local environment setup
 #+begin_src emacs-lisp :tangle yes
-(require 'package)
-
-(package-initialize)
-
-;; Repositories
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(add-to-path "~/.cask/bin")
 #+end_src
+
+
+* Cask
+I'm using cask for managing my installed packages now :)
+#+BEGIN_SRC emacs-lisp :tangle yes
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+#+END_SRC
 
 * Yasnippet
 #+begin_src emacs-lisp :tangle yes
