@@ -1,5 +1,5 @@
 ;; Stupid sound
-(setq visible-bell t)
+;;(setq visible-bell t)
 
 ;; Hides warning --Not sure what id does now
 (eval-after-load "bytecomp"
@@ -13,24 +13,24 @@
       `((".*" ,temporary-file-directory t)))
 
 ;; Stupid warnings gone
-(setq warning-minimum-level :error)
+;(setq warning-minimum-level :error)
 
 ;; Scratch message
-(setq initial-scratch-message nil)
+;(setq initial-scratch-message nil)
 
 ;; Hide startup message
-(setq inhibit-startup-message t)
+;;(setq inhibit-startup-message t)
 ;; Use y or n instead of yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; Hide menu bar
-(menu-bar-mode -1)
+;(menu-bar-mode -1)
 
 ;; Hide toolbar
-(if (boundp 'tool-bar-mode)
-    (tool-bar-mode -1))
+;; (if (boundp 'tool-bar-mode)
+;    (tool-bar-mode -1))
 ;; Hide scrollbar
-(if (boundp 'scroll-bar-mode)
-    (scroll-bar-mode -1))
+;; (if (boundp 'scroll-bar-mode)
+;;     (scroll-bar-mode -1))
 
 ;; Replace region
 (pending-delete-mode t)
@@ -39,15 +39,15 @@
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
 (ido-mode 1)
-(global-set-key
- "\M-x"
- (lambda ()
-   (interactive)
-   (call-interactively
-    (intern
-     (ido-completing-read
-      "M-x "
-      (all-completions "" obarray 'commandp))))))
+;; (global-set-key
+;;  "\M-x"
+;;  (lambda ()
+;;    (interactive)
+;;    (call-interactively
+;;     (intern
+;;      (ido-completing-read
+;;       "M-x "
+;;       (all-completions "" obarray 'commandp)))))
 
 
 ;; Disable transient-mark-mode

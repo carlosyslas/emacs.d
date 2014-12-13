@@ -11,6 +11,38 @@ I also gatta check if the current environment is a mac computer.
 #+begin_src emacs-lisp :tangle yes
 (setq is-mac (equal system-type 'darwin))
 #+end_src
+** Getting rid of the anoying stuff
+I disable the stupid bell sound.
+#+begin_src emacs-lisp :tangle yes
+(setq visible-bell t)
+#+end_src
+
+And I only want to be notified by errors
+#+begin_src emacs-lisp :tangle yes
+(setq warning-minimum-level :error)
+#+end_src
+
+I don't need the default scratch buffer content, so I set it to nil
+#+begin_src emacs-lisp :tangle yes
+(setq initial-scratch-message nil)
+#+end_src
+
+I don't want to see the statup message(that's for newbies XD)
+#+begin_src emacs-lisp :tangle yes
+(setq inhibit-startup-message t)
+#+end_src
+
+I get rid of the toolbar, scrollbar and menu bar
+#+begin_src emacs-lisp :tangle yes
+(menu-bar-mode -1)
+
+(if (boundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+
+(if (boundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
+#+end_src
+
 * Helper functions
 
 This is a set of helper functions for an easier configuration.
@@ -32,6 +64,13 @@ I'm using cask for managing my installed packages now :)
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 #+END_SRC
+
+* Smex
+I'm trying smex for a better M-x eperience.
+
+#+begin_src emacs-lisp :tangle yes
+(global-set-key (kbd "M-x") 'smex)
+#+end_src
 
 * Yasnippet
 #+begin_src emacs-lisp :tangle yes
