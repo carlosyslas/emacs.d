@@ -22,6 +22,7 @@
 (require 'setup-key-bindings)
 
 
+(require 'numeric-bookmarks)
 
 ;; This file is for the local environment configuration
 ;; It should contain things like environment variables setup,

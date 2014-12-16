@@ -31,6 +31,7 @@
 
 (depends-on "zencoding-mode")
 (depends-on "rainbow-delimiters")
+(depends-on "hl-todo")
 
 (depends-on "yasnippet")
 

@@ -11,6 +11,38 @@ I also gatta check if the current environment is a mac computer.
 #+begin_src emacs-lisp :tangle yes
 (setq is-mac (equal system-type 'darwin))
 #+end_src
+
+I don't like to type the whole "yes" or "no" words, so I better like just "y" or "n".
+
+#+begin_src emacs-lisp :tangle yes
+(fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+Also I like to replace the selected region.
+
+#+begin_src emacs-lisp :tangle yes
+(pending-delete-mode t)
+#+end_src
+
+I'm using ido mode for searching files, buffers, etc.
+
+#+begin_src emacs-lisp :tangle yes
+(setq ido-everywhere t)
+(setq ido-enable-flex-matching t)
+(ido-mode 1)
+#+end_src
+
+
+*** TODO move this thing
+
+#+begin_src emacs-lisp :tangle yes
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(global-set-key (kbd "C-<tab>") 'switch-to-previous-buffer)
+#+end_src
+
 ** Getting rid of the anoying stuff
 I disable the stupid bell sound.
 #+begin_src emacs-lisp :tangle yes
@@ -43,6 +75,14 @@ I get rid of the toolbar, scrollbar and menu bar
     (scroll-bar-mode -1))
 #+end_src
 
+And I prefer not to have temp files in the same directory as the original file.
+#+begin_src emacs-lisp :tangle yes
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+#+end_src
+
 * Helper functions
 
 This is a set of helper functions for an easier configuration.
@@ -64,6 +104,43 @@ I'm using cask for managing my installed packages now :)
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 #+END_SRC
+
+* Common development settings
+Subword-mode helps me when I need to navigate in cammel case like variable names
+#+begin_src emacs-lisp :tangle yes
+(global-subword-mode)
+#+end_src
+
+I like to see the matching parentesis highlighted
+
+#+begin_src emacs-lisp :tangle yes
+(show-paren-mode t)
+#+end_src
+
+And I have the line numbers enabled by default
+
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'find-file-hook (lambda () (linum-mode 1)))
+(global-linum-mode 1)
+#+end_src
+
+And the current line is highlighted 
+
+#+begin_src emacs-lisp :tangle yes
+(global-hl-line-mode)
+#+end_src
+
+I would like to try emacs with transient mark disabled
+
+#+begin_src emacs-lisp :tangle yes
+(transient-mark-mode -1)
+#+end_src
+
+* hl-todo
+I'm using hl-todo to easily see all my TODOS in  any file
+#+begin_src emacs-lisp :tangle yes
+(global-hl-todo-mode)
+#+end_src
 
 * Smex
 I'm trying smex for a better M-x eperience.
