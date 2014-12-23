@@ -4,83 +4,103 @@
 
 First I have to add ~/.emacs.d to the load path in order to easily load additional .el files 
 #+begin_src emacs-lisp :tangle yes
-(add-to-list 'load-path user-emacs-directory) ;; ~/.emacs.d
+  (add-to-list 'load-path user-emacs-directory) ;; ~/.emacs.d
 #+end_src
 
 I also gatta check if the current environment is a mac computer.
 #+begin_src emacs-lisp :tangle yes
-(setq is-mac (equal system-type 'darwin))
+  (setq is-mac (equal system-type 'darwin))
 #+end_src
 
 I don't like to type the whole "yes" or "no" words, so I better like just "y" or "n".
 
 #+begin_src emacs-lisp :tangle yes
-(fset 'yes-or-no-p 'y-or-n-p)
+  (fset 'yes-or-no-p 'y-or-n-p)
 #+end_src
 
 Also I like to replace the selected region.
 
 #+begin_src emacs-lisp :tangle yes
-(pending-delete-mode t)
+  (pending-delete-mode t)
 #+end_src
 
 I'm using ido mode for searching files, buffers, etc.
 
 #+begin_src emacs-lisp :tangle yes
-(setq ido-everywhere t)
-(setq ido-enable-flex-matching t)
-(ido-mode 1)
+  (setq ido-everywhere t)
+  (setq ido-enable-flex-matching t)
+  (ido-mode 1)
 #+end_src
 
 
 *** TODO move this thing
 
 #+begin_src emacs-lisp :tangle yes
-(defun switch-to-previous-buffer ()
-      (interactive)
-      (switch-to-buffer (other-buffer (current-buffer) 1)))
+  (defun switch-to-previous-buffer ()
+    (interactive)
+    (switch-to-buffer (other-buffer (current-buffer) 1)))
 
-(global-set-key (kbd "C-<tab>") 'switch-to-previous-buffer)
+  (global-set-key (kbd "C-<tab>") 'switch-to-previous-buffer)
+
+  ;; This for remembering to use C-/ for undoing stuff -- TODO move it to keybindings
+  (global-unset-key (kbd "C-x u"))
+  (global-set-key (kbd "C-x u") (lambda ()
+                                  (interactive)
+                                  ;; find a way to show the visual bell please!
+                                  (message "You better use C-/ for undoing stuff")
+                                  ))
 #+end_src
 
 ** Getting rid of the anoying stuff
 I disable the stupid bell sound.
 #+begin_src emacs-lisp :tangle yes
-(setq visible-bell t)
+  (setq visible-bell t)
 #+end_src
 
 And I only want to be notified by errors
 #+begin_src emacs-lisp :tangle yes
-(setq warning-minimum-level :error)
+  (setq warning-minimum-level :error)
 #+end_src
 
 I don't need the default scratch buffer content, so I set it to nil
 #+begin_src emacs-lisp :tangle yes
-(setq initial-scratch-message nil)
+  (setq initial-scratch-message nil)
 #+end_src
 
 I don't want to see the statup message(that's for newbies XD)
 #+begin_src emacs-lisp :tangle yes
-(setq inhibit-startup-message t)
+  (setq inhibit-startup-message t)
 #+end_src
 
 I get rid of the toolbar, scrollbar and menu bar
 #+begin_src emacs-lisp :tangle yes
-(menu-bar-mode -1)
+  (menu-bar-mode -1)
 
-(if (boundp 'tool-bar-mode)
-    (tool-bar-mode -1))
+  (if (boundp 'tool-bar-mode)
+      (tool-bar-mode -1))
 
-(if (boundp 'scroll-bar-mode)
-    (scroll-bar-mode -1))
+  (if (boundp 'scroll-bar-mode)
+      (scroll-bar-mode -1))
 #+end_src
 
 And I prefer not to have temp files in the same directory as the original file.
 #+begin_src emacs-lisp :tangle yes
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+  (setq backup-directory-alist
+        `((".*" . ,temporary-file-directory)))
+  (setq auto-save-file-name-transforms
+        `((".*" ,temporary-file-directory t)))
+#+end_src
+
+** Configuration for OS X
+
+#+begin_src emacs-lisp :tangle yes
+(when is-mac
+  ;; Set option to nil to enable extrange chars
+  (setq mac-option-modifier nil)
+  ;; Use control from Meta
+  (setq ns-command-modifier (quote meta))
+  ;; Set right option to control
+  (setq mac-right-option-modifier 'control))
 #+end_src
 
 * Helper functions
@@ -88,78 +108,307 @@ And I prefer not to have temp files in the same directory as the original file.
 This is a set of helper functions for an easier configuration.
 
 #+begin_src emacs-lisp :tangle yes
-(defun add-to-path (dir)
-"Adds dir to the PATH environment variable"
-(setenv "PATH" (concat (format "%s:" dir) (getenv "PATH"))))
+  (defun add-to-path (dir)
+    "Adds dir to the PATH environment variable"
+    (setenv "PATH" (concat (format "%s:" dir) (getenv "PATH"))))
+
+  ;; TODO change this function's name and doc it
+  (defun load-file-if-exists (file-name)
+    (let ((file-path (expand-file-name file-name user-emacs-directory)))
+      (when (file-exists-p file-path)
+        (load-file file-path))))
 #+end_src
+
 * Local environment setup
 #+begin_src emacs-lisp :tangle yes
-(add-to-path "~/.cask/bin")
+  (add-to-path "~/.cask/bin")
 #+end_src
 
 
 * Cask
 I'm using cask for managing my installed packages now :)
 #+BEGIN_SRC emacs-lisp :tangle yes
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
+  (require 'cask "~/.cask/cask.el")
+  (cask-initialize)
 #+END_SRC
+
+* Org Mode
+
+I had this configuration for using Google Drive but not sure if it's going to be my choice :(
+#+begin_src emacs-lisp :tangle yes
+  (setq google-drive-dir "~/Google Drive/")
+  (setq org-capture-templates
+        '(("i" "Inbox" entry (file (expand-file-name "org/inbox.org" google-drive-dir)  "Inbox")
+           "* TODO %?\n"
+           )
+          ))
+#+end_src
+
+This is for enabling syntax highlighting in src blocks for org files
+#+begin_src emacs-lisp :tangle yes
+  (setq org-src-fontify-natively t)
+#+end_src
+
+Here I'm setting a global org prefix so I can access org stuff quickly.
+
+#+begin_src emacs-lisp :tangle yes
+  (global-unset-key (kbd "C-o"))
+  (global-set-key (kbd "C-o c") 'org-capture)
+#+end_src
 
 * Common development settings
 Subword-mode helps me when I need to navigate in cammel case like variable names
 #+begin_src emacs-lisp :tangle yes
-(global-subword-mode)
+  (global-subword-mode)
 #+end_src
 
 I like to see the matching parentesis highlighted
 
 #+begin_src emacs-lisp :tangle yes
-(show-paren-mode t)
+  (show-paren-mode t)
 #+end_src
 
 And I have the line numbers enabled by default
 
 #+begin_src emacs-lisp :tangle yes
-(add-hook 'find-file-hook (lambda () (linum-mode 1)))
-(global-linum-mode 1)
+  (add-hook 'find-file-hook (lambda () (linum-mode 1)))
+  (global-linum-mode 1)
 #+end_src
 
 And the current line is highlighted 
 
 #+begin_src emacs-lisp :tangle yes
-(global-hl-line-mode)
+  (global-hl-line-mode)
 #+end_src
 
-I would like to try emacs with transient mark disabled
+I turn on eldoc in any elisp like mode
 
 #+begin_src emacs-lisp :tangle yes
-(transient-mark-mode -1)
+  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 #+end_src
 
-* hl-todo
+Here I set the default indentation config
+
+#+begin_src emacs-lisp :tangle yes
+  (setq js2-basic-offset 2)
+  (setq js2-bounce-indent-p nil)
+  (setq js-indent-level 2
+        indent-tabs-mode nil
+        c-basic-offset 2)
+  (setq indent-tabs-mode nil)
+#+end_src
+
+* Autocomplete
+
+I'm using autocomplete but may be I'll try company in the future. I really don't know.
+Meanwhile here is my configuration for autocomplete.
+
+#+begin_src emacs-lisp :tangle yes
+  (require 'auto-complete-config)
+  (ac-config-default)
+#+end_src
+
+* Hl-todo
 I'm using hl-todo to easily see all my TODOS in  any file
 #+begin_src emacs-lisp :tangle yes
-(global-hl-todo-mode)
+  (global-hl-todo-mode)
 #+end_src
 
 * Smex
 I'm trying smex for a better M-x eperience.
 
 #+begin_src emacs-lisp :tangle yes
-(global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-x") 'smex)
 #+end_src
 
 * Yasnippet
 #+begin_src emacs-lisp :tangle yes
-(yas-global-mode)
+  (yas-global-mode)
 #+end_src
 
 * Projectile
   In order to have projectile enabled globally I have to call it's gobal-mode function.
 #+BEGIN_SRC emacs-lisp :tangle yes
-(projectile-global-mode)
+  (projectile-global-mode)
 #+END_SRC
+
+* Ace Jump
+
+I'm just setting the keybindng for ace jump. Should I do something else?
+
+#+begin_src emacs-lisp :tangle yes
+  (global-set-key (kbd "C-j") 'ace-jump-mode)
+#+end_src
+
+* Smartparens
+
+So, I'm using smartparens because why not?. It helps me when I need to have pairs of characters like parentesis, brakets and than kind of stuff.
+
+The only thing I'm configuring right now is a set of special characters for some mayor modes. For other modes I'm using the default configuration.
+
+#+begin_src emacs-lisp :tangle yes
+  (defun setup-smartparens ()
+    (smartparens-global-mode 1)
+    (sp-with-modes '(html-mode sgml-mode)
+      (sp-local-pair "<" ">"))
+    (sp-with-modes '(go-mode)
+      (sp-local-pair "/*" "*/"))
+    )
+
+  (add-hook 'after-init-hook 'setup-smartparens)
+#+end_src
+
+* Magit
+
+Right now I'm not using all the magit power :(
+
+I just set a global keybinding than could change but I'm interested in making more awesome git stuff
+
+#+begin_src emacs-lisp :tangle yes
+  (global-set-key (kbd "<f5>") 'magit-status)
+#+end_src
+
+* Expand region
+
+Ok, so I'm kinda using expand region but I need to figure out a way to remember to use it. 
+My current key binding seems to be ok but I can change it in the future.
+
+#+begin_src emacs-lisp :tangle yes
+  (require 'expand-region)
+  (global-set-key (kbd "M-p") 'er/expand-region)
+#+end_src
+
+* Git Gutter Fringe
+
+I found this really cool minor mode that shows file modifications from git status in the left margin.
+
+It's super awesome and easy to configure
+
+#+begin_src emacs-lisp :tangle yes
+  (require 'git-gutter-fringe+)
+  (global-git-gutter+-mode)
+#+end_src
+
+* Ace Window
+Jumping from a window to another kinda sucks, so I'm using this package that makes it really fancy and easy.
+
+First of all, I'm setting a dummy function to *C-x o*, so I'm being forced to use ace window. I neet to fix an issue with js2-mode, though
+#+begin_src emacs-lisp :tangle yes
+  (defun c-x-o-replace ()
+    "Forces me to use ace-window"
+    (interactive)
+    (message "You better use M-j"))
+  (global-unset-key (kbd "C-x o"))
+  (global-set-key (kbd "C-x o") 'c-x-o-replace)
+#+end_src
+
+Then I setup ace window and I chose to use comfortable keys for dvorak layout
+#+begin_src emacs-lisp :tangle yes
+  (global-set-key (kbd "M-j") 'ace-window)
+  (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v))
+#+end_src
+
+* Zencoding mode
+
+#+begin_src emacs-lisp :tangle yes
+  (add-hook 'sgml-mode-hook 'zencoding-mode)
+#+end_src
+
+* Js2 mode?
+
+#+begin_src emacs-lisp :tangle yes
+  ;; Not sure what this thing does
+  (js2-imenu-extras-mode)
+#+end_src
+
+* File associations
+
+#+begin_src emacs-lisp :tangle yes
+  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.ctp$" . sgml-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl$" . sgml-mode))
+  (add-to-list 'auto-mode-alist '("\\.html$" . sgml-mode))
+  (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+  (add-to-list 'auto-mode-alist '("\\.module$" . php-mode))
+  (add-to-list 'auto-mode-alist '("\\.install$" . php-mode))
+#+end_src
+
+* Keybindings
+
+#+begin_src emacs-lisp :tangle yes
+  ;; Should move to a different file: Taken from Magnars Sveen config
+  (defun kill-region-or-backward-word ()
+    (interactive)
+    (if (region-active-p)
+        (kill-region (region-beginning) (region-end))
+      (backward-kill-word 1)))
+
+
+  ;; GoTo line
+  (global-set-key (kbd "C-x g") 'goto-line)
+
+  ;; A more comfortable backspace
+  (global-unset-key (kbd "C-h"))
+  (global-set-key (kbd "C-h") 'backward-delete-char)
+  (global-set-key (kbd "M-h") 'kill-region-or-backward-word)
+
+  ;; New line and indent
+  (global-set-key (kbd "RET") 'newline-and-indent)
+
+  ;; Disable backspace, so I must use C-h
+  (global-set-key (kbd "<backspace>") 'ignore)
+
+  ;; A better M-x
+  (global-set-key (kbd "C-x m") 'smex)
+  (global-set-key (kbd "C-c m") 'smex)
+
+  ;; Multi-term
+  ;;(global-set-key (kbd "C-x t") 'multi-term-next) ;; May change it?
+  ;; Eshell
+   (global-set-key (kbd "C-x t") 'eshell)
+
+  ;; Previeous window
+  (global-set-key (kbd "C-x M-o") 'previous-multiframe-window)
+
+  ;; Goto line
+  (global-set-key (kbd "C-x g") 'goto-line)
+
+  ;; Org-mode
+  (global-set-key (kbd "<f2>") 'org-capture)
+#+end_src
+
+* Algunas notas sobre shortcuts
+#+begin_src emacs-lisp :tangle yes
+;; C-j ace-jump-mode
+
+;; M-p expand-region
+;; M-r no tan usual- se reemplaza por ace-jump-mode
+;; M-o no se que tranza
+;; M-i se usa para tabs
+;; M-n no definida
+;; M-s es un prefijo para no se que
+;; M-q fill paragraph- formatea un parrafo. Tengo que ver si es util
+;; M-j ace-window
+;; M-z Debes usarlo. Hace un kill hasta un caracter
+#+end_src
+
 * TODOS
 ** TODO Check how to make the lines not to be hidden when the screen is thinner than text. 
 ** TODO Check use-package to better manage packages
-** TODO Check cask to better manage packages
+** DONE Check cask to better manage packages
+** TODO Check the indentation setup please!!!
+** TODO Check Paradox? :)
+** TODO Cycle spacing
+** TODO May be check eww
+** TODO Cure mode? web development (scure ?)
+** TODO Slime js must otro similar?
+** TODO Must web-mode
+** TODO O-blog-mode
+** TODO Org-agregate :O org tbl agregate
+** TODO Start doing snippets please!!!
+** TODO Should use occur please!!!! M-s o (checar tambien M-s l y M-s u)
+** TODO Should use "v" in dired mode please!!!!
+** TODO Should I use <Enter> as another control? I think I must try
+** TODO Can I get rid of Alfred's workflows by using emacs as a replacement for other apps?

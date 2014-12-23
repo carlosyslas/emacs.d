@@ -12,25 +12,25 @@
 
 ;; (require 'setup-helm)
 
-(require 'setup-autocomplete)
+;(require 'setup-autocomplete)
 
-(require 'setup-ace-jump)
+;(require 'setup-ace-jump)
 
-(require 'setup-zencoding-mode)
+;(require 'setup-zencoding-mode)
 
-(require 'setup-smartparens)
+;;(require 'setup-smartparens)
 
 ;; Magit
-(global-set-key (kbd "<f5>") 'magit-status)
+;;(global-set-key (kbd "<f5>") 'magit-status)
 
 ;; TODO move this to it's file and set up a keybinding for helm-imenu
 (js2-imenu-extras-mode)
 
-(require 'setup-expand-region)
+;(require 'setup-expand-region)
 
-(require 'setup-git-gutter-fringe+)
+;(require 'setup-git-gutter-fringe+)
 
-(require 'setup-ace-window)
+;;(require 'setup-ace-window)
 
 (provide 'setup-vendor)
 ;; End of setup-vendor.el

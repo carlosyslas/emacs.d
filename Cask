@@ -29,6 +29,7 @@
 (depends-on "projectile")
 (depends-on "smex")
 
+(depends-on "web-mode")
 (depends-on "zencoding-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "hl-todo")
