@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: functiongenerator
+# key: fg
+# --
+function* $1($2) {
+  $0
+}

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: consoleinfo
+# key: cinf
+# --
+console.info($1);$0

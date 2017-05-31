@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: todo
+# key: td
+# --
+// TODO(${1:carlos}): $0

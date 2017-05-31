@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Class
+# key: cls
+# --
+class $1 ${2:extends $3 }{
+  $0
+}

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: export-defoult
+# key: xpd
+# --
+export default $1;$0

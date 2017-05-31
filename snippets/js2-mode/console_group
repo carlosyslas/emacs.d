@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cgroup
+# key: cgroup
+# --
+console.group($1);
+$0
+console.groupEnd($1);

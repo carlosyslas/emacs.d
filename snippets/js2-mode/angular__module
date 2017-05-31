@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: module
+# key: amodule
+# --
+angular.module('$1', [$2])$0

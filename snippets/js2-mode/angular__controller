@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: controller
+# key: acontroller
+# --
+controller('$1', ['$2', function ($2) {
+  'use strict';
+  $0
+}])$3

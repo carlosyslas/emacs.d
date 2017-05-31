@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: state
+# key: astate
+# --
+state('$1', {
+  url: '$2',
+  $3: '$4'$0
+})$5

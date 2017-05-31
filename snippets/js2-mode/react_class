@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: rclass
+# key: rclass
+# --
+var $1 = React.createClass({
+  render: function () {
+    $0;
+  }
+});
+
+module.exports = $1;

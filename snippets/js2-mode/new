@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: new
+# key: nw
+# --
+${1:const} ${2:obj} = new ${2:$(upcase-initials yas-text)}();
