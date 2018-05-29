@@ -68,7 +68,8 @@
 (use-package ivy
   :ensure t
   :config
-  (ivy-mode))
+  (ivy-mode)
+  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus) (t . ivy--regex-fuzzy))))
 
 ;; TODO mu4e, undo-tree
 
@@ -86,8 +87,6 @@
 (global-set-key (kbd "C-x t") 'eshell)
 
 (global-set-key (kbd "C-<tab>") 'switch-to-buffer)
-
-(add-to-list 'exec-path "/usr/local/bin")
 
 ;; Theme
 (set-default-font "Source Code Pro")
