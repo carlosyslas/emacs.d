@@ -89,7 +89,6 @@
 (global-set-key (kbd "C-<tab>") 'switch-to-buffer)
 
 ;; Theme
-(set-default-font "Source Code Pro")
 (set-face-attribute 'default nil :height 130)
 (use-package base16-theme
   :ensure t
@@ -97,3 +96,4 @@
   (load-theme 'base16-harmonic-light t)
   (set-face-background 'fringe "#f7f9fb")
   (set-face-foreground 'vertical-border "#e5ebf1"))
+(set-default-font "Source Code Pro")
