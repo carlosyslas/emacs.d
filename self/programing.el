@@ -1,4 +1,4 @@
-(setq self/indentation-spaces 2)
+(setq self/indentation-spaces 4)
 
 (global-subword-mode)
 

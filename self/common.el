@@ -1,3 +1,5 @@
+(require 'uniquify)
+
 (setq is-mac (equal system-type 'darwin))
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -35,5 +37,13 @@
   (setq ns-command-modifier (quote meta))
   ;; Set right option to control
   (setq mac-right-option-modifier 'control))
+
+(setq uniquify-buffer-name-style 'forward)
+(setq uniquify-separator "/")
+(setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
+(setq uniquify-ignore-buffers-re "^\\*")
+
+(global-auto-revert-mode 1)
+(add-hook 'dired-mode-hook 'auto-revert-mode)
 
 (provide 'common)

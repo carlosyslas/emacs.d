@@ -71,6 +71,10 @@
   (ivy-mode)
   (setq ivy-re-builders-alist '((swiper . ivy--regex-plus) (t . ivy--regex-fuzzy))))
 
+(use-package avy
+  :ensure t
+  :bind (("M-s" . avy-goto-word-1)))
+
 ;; TODO mu4e, undo-tree
 
 ;; TODO move this function into the self directory
