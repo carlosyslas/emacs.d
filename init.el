@@ -75,6 +75,17 @@
   :ensure t
   :bind (("M-s" . avy-goto-word-1)))
 
+(use-package treemacs
+  :ensure t
+  :bind (("M-0" . treemacs-select-window)))
+
+(use-package treemacs-evil
+  :after treemacs evil
+  :ensure t)
+
+(use-package treemacs-projectile
+  :after treemacs projectile
+  :ensure t)
 ;; TODO mu4e, undo-tree
 
 ;; TODO move this function into the self directory
