@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: constant
+# key: cst
+# --
+const $1 = $2;$0

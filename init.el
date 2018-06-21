@@ -36,12 +36,18 @@
   :ensure t
   :config
   (global-set-key (kbd "M-p") 'counsel-projectile-switch-project)
-  (global-set-key (kbd "M-o") 'counsel-projectile-find-file))
+  (global-set-key (kbd "M-o") 'counsel-projectile-find-file)
+  (global-set-key (kbd "M-F") 'projectile-grep))
 
-(use-package js2-mode
+;; (use-package js2-mode
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
+
+(use-package rjsx-mode
   :ensure t
   :config
-  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
+  (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode)))
 
 (use-package ace-window
   :ensure t
