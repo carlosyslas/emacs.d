@@ -65,6 +65,12 @@
   :config
   (yas-global-mode))
 
+(use-package flx
+  :ensure t)
+
+(use-package company-flx
+  :ensure t)
+
 (use-package ivy
   :ensure t
   :config
