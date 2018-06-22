@@ -53,6 +53,7 @@
   :ensure t
   :config
   (global-set-key (kbd "M-j") 'ace-window)
+  (global-set-key (kbd "M-k") 'ace-delete-window)
   (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
 
 (use-package git-gutter-fringe+
@@ -114,6 +115,10 @@
 (global-set-key (kbd "C-x t") 'eshell)
 
 (global-set-key (kbd "C-<tab>") 'switch-to-buffer)
+
+(global-subword-mode t)
+
+(blink-cursor-mode 0)
 
 ;; Theme
 (set-face-attribute 'default nil :height 130)
