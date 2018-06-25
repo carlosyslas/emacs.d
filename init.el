@@ -99,6 +99,12 @@
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)
+
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "M-e") 'er/expand-region))
+
 ;; TODO mu4e, undo-tree
 
 ;; TODO move this function into the self directory
