@@ -128,10 +128,12 @@
 
 ;; Theme
 (set-face-attribute 'default nil :height 130)
-(use-package base16-theme
+(use-package flatui-theme
   :ensure t
   :config
-  (load-theme 'base16-harmonic-light t)
-  (set-face-background 'fringe "#f7f9fb")
-  (set-face-foreground 'vertical-border "#e5ebf1"))
+  (load-theme 'flatui))
 (set-default-font "Source Code Pro")
+
+; TODO: make mode for jest
+; TODO: make mode for sport scores
+; TODO: make mode for displaying git annotations on current line a la gitlens

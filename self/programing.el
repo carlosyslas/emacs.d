@@ -15,5 +15,6 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-tabs-mode nil)
 (setq python-indent-offset self/indentation-spaces)
+(setq sgml-basic-offset self/indentation-spaces)
 
 (provide 'programing)
