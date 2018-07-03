@@ -32,17 +32,12 @@
   (projectile-global-mode)
   (recentf-mode 1))
 
-(use-package counsel-projectile
+(use-package helm-projectile
   :ensure t
   :config
-  (global-set-key (kbd "M-p") 'counsel-projectile-switch-project)
-  (global-set-key (kbd "M-o") 'counsel-projectile-find-file)
+  (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
+  (global-set-key (kbd "M-o") 'helm-projectile-find-file)
   (global-set-key (kbd "M-F") 'projectile-grep))
-
-;; (use-package js2-mode
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
 
 (use-package rjsx-mode
   :ensure t
@@ -78,11 +73,10 @@
 (use-package company-flx
   :ensure t)
 
-(use-package ivy
+(use-package helm
   :ensure t
   :config
-  (ivy-mode)
-  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus) (t . ivy--regex-fuzzy))))
+  (require 'helm-config))
 
 (use-package avy
   :ensure t
@@ -134,6 +128,7 @@
   (load-theme 'flatui))
 (set-default-font "Source Code Pro")
 
+;; (require 'astrologit-mode)
 ; TODO: make mode for jest
 ; TODO: make mode for sport scores
 ; TODO: make mode for displaying git annotations on current line a la gitlens

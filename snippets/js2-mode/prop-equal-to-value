@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: prop-equal-to-value
+# key: =prop
+# --
+$1: '$1',$0
