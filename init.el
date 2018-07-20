@@ -37,7 +37,10 @@
   :config
   (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
   (global-set-key (kbd "M-o") 'helm-projectile-find-file)
-  (global-set-key (kbd "M-F") 'projectile-grep))
+  (global-set-key (kbd "M-F") 'projectile-grep)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "M-f") 'helm-find-files)
+  (global-set-key (kbd "C-<tab>") 'helm-buffers-list))
 
 (use-package rjsx-mode
   :ensure t
@@ -99,6 +102,18 @@
   :config
   (global-set-key (kbd "M-e") 'er/expand-region))
 
+(use-package perspective
+  :ensure t
+  :config
+  (persp-mode)) ;; TODO came up with some better keybindings
+
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode 1))
+
+(winner-mode 1)
+
 ;; TODO mu4e, undo-tree
 
 ;; TODO move this function into the self directory
@@ -109,12 +124,7 @@
 
 (global-set-key (kbd "M-,") 'self/open-config-file)
 
-
-(global-set-key (kbd "M-f") 'find-file)
-
 (global-set-key (kbd "C-x t") 'eshell)
-
-(global-set-key (kbd "C-<tab>") 'switch-to-buffer)
 
 (global-subword-mode t)
 
@@ -122,10 +132,10 @@
 
 ;; Theme
 (set-face-attribute 'default nil :height 130)
-(use-package flatui-theme
+(use-package soothe-theme
   :ensure t
   :config
-  (load-theme 'flatui))
+  (load-theme 'soothe))
 (set-default-font "Source Code Pro")
 
 ;; (require 'astrologit-mode)
