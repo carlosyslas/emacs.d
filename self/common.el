@@ -9,7 +9,7 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (when is-mac
-  (add-hook 'emacs-startup-hook 'toggle-frame-maximized))
+  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen))
 
 (setq warning-minimum-level :error)
 
