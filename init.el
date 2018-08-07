@@ -58,7 +58,63 @@
   :ensure t
   :config
   (global-git-gutter+-mode)
-  (git-gutter-fr+-minimal))
+  (setq-default fringes-outside-margins t)
+  ;;(git-gutter-fr+-minimal)
+  (fringe-helper-define 'git-gutter-fr+-added nil
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX.....")
+  (fringe-helper-define 'git-gutter-fr+-modified nil
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    "XXX....."
+    )
+  (fringe-helper-define 'git-gutter-fr+-deleted nil
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "........"
+    "X......."
+    "XX......"
+    "XXX....."
+    "XXXX...."))
 
 (use-package company
   :ensure t
@@ -101,6 +157,15 @@
   :ensure t
   :config
   (global-set-key (kbd "M-e") 'er/expand-region))
+
+(use-package paradox
+  :ensure t)
+
+(use-package nlinum
+  :ensure t) ;; TODO: Not sure yet
+
+(use-package doom-themes
+  :ensure t)
 
 (use-package perspective
   :ensure t
