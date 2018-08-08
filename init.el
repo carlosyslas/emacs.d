@@ -162,10 +162,9 @@
   :ensure t)
 
 (use-package nlinum
-  :ensure t) ;; TODO: Not sure yet
-
-(use-package doom-themes
-  :ensure t)
+  :ensure t
+  :config
+  (setq nlinum-highlight-current-line t)) ;; TODO: Not sure yet
 
 (use-package perspective
   :ensure t
@@ -197,10 +196,10 @@
 
 ;; Theme
 (set-face-attribute 'default nil :height 130)
-(use-package soothe-theme
+(use-package doom-themes
   :ensure t
   :config
-  (load-theme 'soothe))
+  (load-theme 'doom-one))
 (set-default-font "Source Code Pro")
 
 ;; (require 'astrologit-mode)

@@ -1,0 +1,5 @@
+alias ll ls -l $*
+alias gst git status
+alias gl git pull
+alias gp git push
+alias ga git add
