@@ -52,14 +52,14 @@
   :config
   (global-set-key (kbd "M-j") 'ace-window)
   (global-set-key (kbd "M-k") 'ace-delete-window)
-  (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
+  (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v))
+  (advice-add 'ace-window :after #'golden-ratio))
 
 (use-package git-gutter-fringe+
   :ensure t
   :config
   (global-git-gutter+-mode)
   (setq-default fringes-outside-margins t)
-  ;;(git-gutter-fr+-minimal)
   (fringe-helper-define 'git-gutter-fr+-added nil
     "XXX....."
     "XXX....."

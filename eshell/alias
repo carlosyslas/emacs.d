@@ -3,3 +3,6 @@ alias gst git status
 alias gl git pull
 alias gp git push
 alias ga git add
+
+alias vim find-file $1
+alias e find-file $1
