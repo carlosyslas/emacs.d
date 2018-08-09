@@ -176,6 +176,19 @@
   :config
   (golden-ratio-mode 1))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
+(use-package all-the-icons-dired
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+
+(use-package restclient
+  :ensure t)
+
 (winner-mode 1)
 
 ;; TODO mu4e, undo-tree
