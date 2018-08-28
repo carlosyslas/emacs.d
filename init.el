@@ -42,10 +42,27 @@
   (global-set-key (kbd "M-f") 'helm-find-files)
   (global-set-key (kbd "C-<tab>") 'helm-buffers-list))
 
+(use-package js2-refactor
+  :ensure t)
+
+(use-package xref-js2
+  :ensure t)
+
 (use-package rjsx-mode
   :ensure t
   :config
-  (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode)))
+  (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+  (define-key js2-mode-map (kbd "M-.") nil)
+  (add-hook 'js2-mode-hook (lambda ()
+                             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+
+(use-package indium
+  :ensure t)
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package ace-window
   :ensure t
@@ -202,6 +219,8 @@
 (global-set-key (kbd "M-,") 'self/open-config-file)
 
 (global-set-key (kbd "C-x t") 'eshell)
+(setq eshell-glob-case-insensitive t)
+(setq eshell-cmpl-ignore-case t)
 
 (global-subword-mode t)
 
