@@ -53,6 +53,8 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
   (define-key js2-mode-map (kbd "M-.") nil)
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
   (add-hook 'js2-mode-hook (lambda ()
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
                              (superword-mode 1)
