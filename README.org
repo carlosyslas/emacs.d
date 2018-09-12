@@ -1,3 +1,5 @@
 * emacs.d
 
+  [[./img/screenshot1.png]]
+
 My personal emacs configuration
