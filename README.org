@@ -4,10 +4,13 @@
 
 My personal emacs configuration
 
+** Features
+   -
+
 ** Keyboard Shortcuts
 
-   | Key       | Function                 |
-   |-----------+--------------------------|
+   | Key     | Function                 |
+   |---------+--------------------------|
    | M-p     | Switch Project           |
    | M-o     | Find File in Project     |
    | M-F     | Search String in Project |
@@ -17,5 +20,5 @@ My personal emacs configuration
    | M-k     | Kill window              |
    | M-s     | Jump to word             |
    | M-e     | Expand region            |
-   | M-,    | Open init file           |
-   | C-x t | Open eshell              |
+   | M-,     | Open init file           |
+   | C-x t   | Open eshell              |

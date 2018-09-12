@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import-case
+# key: impc
+# --
+import $1 from '$2${1:$(self/camel-to-lisp-case yas-text)}';

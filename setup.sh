@@ -5,6 +5,7 @@
 
 brew install emacs
 brew install ag
+brew install aspell
 
 if [[ -d ~/.emacs.d && ! -L ~/.emacs.d ]]; then
     rm -rf ~/.emacs.d
