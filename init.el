@@ -48,6 +48,9 @@
 (use-package xref-js2
   :ensure t)
 
+(use-package prettier-js
+  :ensure t)
+
 (use-package rjsx-mode
   :ensure t
   :config
@@ -58,6 +61,7 @@
   (add-hook 'js2-mode-hook (lambda ()
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
                              (superword-mode 1)
+                             (prettier-js-mode)
                              )))
 
 (use-package indium
@@ -162,9 +166,18 @@
   :ensure t
   :bind (("M-s" . avy-goto-word-1)))
 
-(use-package treemacs
+(use-package dired-sidebar
   :ensure t
-  :bind (("M-0" . treemacs-select-window)))
+  :bind (("M-0" . dired-sidebar-toggle-sidebar))
+  :commands (dired-sidebar-toggle-sidebar)
+  :init
+  (add-hook 'dired-sidebar-mode-hook
+            (lambda ()
+              (unless (file-remote-p default-directory)
+                (auto-revert-mode)))
+            )
+  :config
+  (setq dired-sidebar-theme 'vscode))
 
 (use-package treemacs-evil
   :after treemacs evil
@@ -187,10 +200,11 @@
   :config
   (setq nlinum-highlight-current-line t)) ;; TODO: Not sure yet
 
-(use-package perspective
-  :ensure t
-  :config
-  (persp-mode)) ;; TODO came up with some better keybindings
+;; Perspective mode is not working well with desktop-save-mode
+;; (use-package perspective
+;;   :ensure t
+;;   :config
+;;   (persp-mode)) ;; TODO came up with some better keybindings
 
 (use-package golden-ratio
   :ensure t
@@ -237,6 +251,9 @@
   :config
   (load-theme 'doom-one))
 (set-default-font "Source Code Pro")
+
+;; Save and restore the session
+(desktop-save-mode 1)
 
 ;; (require 'astrologit-mode)
 ; TODO: make mode for jest
