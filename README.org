@@ -8,14 +8,14 @@ My personal emacs configuration
 
    | Key       | Function                 |
    |-----------+--------------------------|
-   | ~M-p~     | Switch Project           |
-   | ~M-o~     | Find File in Project     |
-   | ~M-F~     | Search String in Project |
-   | ~M-f~     | Find File                |
-   | ~C-<tab>~ | Show buffers list        |
-   | ~M-j~     | Jump to window           |
-   | ~M-k~     | Kill window              |
-   | ~M-s~     | Jump to word             |
-   | ~M-e~     | Expand region            |
-   | ~M-,~     | Open init file           |
-   | ~C-x~ ~t~ | Open eshell              |
+   | M-p     | Switch Project           |
+   | M-o     | Find File in Project     |
+   | M-F     | Search String in Project |
+   | M-f     | Find File                |
+   | C-<tab> | Show buffers list        |
+   | M-j     | Jump to window           |
+   | M-k     | Kill window              |
+   | M-s     | Jump to word             |
+   | M-e     | Expand region            |
+   | M-,    | Open init file           |
+   | C-x t | Open eshell              |
