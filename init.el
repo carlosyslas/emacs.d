@@ -32,12 +32,20 @@
   (projectile-global-mode)
   (recentf-mode 1))
 
+(use-package ag
+  :ensure t)
+
+(use-package winnow
+  :ensure t
+  :config
+  (add-hook 'ag-mode-hook 'winnow-mode))
+
 (use-package helm-projectile
   :ensure t
   :config
   (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
   (global-set-key (kbd "M-o") 'helm-projectile-find-file)
-  (global-set-key (kbd "M-F") 'projectile-grep)
+  (global-set-key (kbd "M-F") 'projectile-ag)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "M-f") 'helm-find-files)
   (global-set-key (kbd "C-<tab>") 'helm-buffers-list))

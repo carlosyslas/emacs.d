@@ -4,6 +4,7 @@
 # https://github.com/carlosyslas/dot-files
 
 brew install emacs
+brew install ag
 
 if [[ -d ~/.emacs.d && ! -L ~/.emacs.d ]]; then
     rm -rf ~/.emacs.d
