@@ -1,3 +1,0 @@
-
-
-(provide 'setup-org-mode)
