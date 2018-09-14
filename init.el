@@ -72,6 +72,9 @@
                              (prettier-js-mode)
                              )))
 
+(use-package go-mode
+  :ensure t)
+
 (use-package indium
   :ensure t)
 
