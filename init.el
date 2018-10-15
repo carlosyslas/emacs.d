@@ -24,6 +24,7 @@
 (use-package magit
   :ensure t
   :config
+  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (global-set-key (kbd "M-g") 'magit-status))
 
 (use-package projectile
@@ -72,24 +73,35 @@
                              (prettier-js-mode)
                              )))
 
+;; Add syntax highlighting to jest snapshots
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.snap$" . web-mode)))
+
+(use-package flycheck-flow
+  :ensure t
+  )
+
 (use-package go-mode
   :ensure t)
 
 (use-package indium
   :ensure t)
 
+;;* Org mode
 (use-package org-bullets
   :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(bind-key "M-a" 'org-agenda)
 
 (use-package ace-window
   :ensure t
   :config
   (global-set-key (kbd "M-j") 'ace-window)
   (global-set-key (kbd "M-k") 'ace-delete-window)
-  (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v))
-  (advice-add 'ace-window :after #'golden-ratio))
+  (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
 
 (use-package git-gutter-fringe+
   :ensure t
@@ -177,9 +189,19 @@
   :ensure t
   :bind (("M-s" . avy-goto-word-1)))
 
+(use-package bind-key
+  :ensure t)
+
+;;* Dired config
+(require 'dired)
+(bind-key "M-0" 'dired-jump)
+(setq dired-listing-switches "-ah")
+(use-package dired-narrow
+  :ensure t)
+
 (use-package dired-sidebar
   :ensure t
-  :bind (("M-0" . dired-sidebar-toggle-sidebar))
+  ;;:bind (("M-0" . dired-sidebar-toggle-sidebar))
   :commands (dired-sidebar-toggle-sidebar)
   :init
   (add-hook 'dired-sidebar-mode-hook
@@ -203,6 +225,11 @@
   :config
   (global-set-key (kbd "M-e") 'er/expand-region))
 
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config))
+
 (use-package paradox
   :ensure t)
 
@@ -216,11 +243,6 @@
 ;;   :ensure t
 ;;   :config
 ;;   (persp-mode)) ;; TODO came up with some better keybindings
-
-(use-package golden-ratio
-  :ensure t
-  :config
-  (golden-ratio-mode 1))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -270,7 +292,10 @@
   :ensure t
   :config
   (load-theme 'doom-one))
+
 (set-default-font "Source Code Pro")
+(setq frame-title-format "")
+;; (setq ns-use-proxy-icon nil)
 
 ;; Save and restore the session
 (desktop-save-mode 1)
