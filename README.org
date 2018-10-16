@@ -15,6 +15,7 @@
 
 ** Appearance
 *** Theme
+    I'm using [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots#doom-one][doom-one]] as theme.
     #+BEGIN_SRC emacs-lisp
       (use-package doom-themes
         :ensure t
@@ -22,6 +23,7 @@
         (load-theme 'doom-one))
     #+END_SRC
 *** Font
+    My font is [[https://github.com/adobe-fonts/source-code-pro][source-code-pro]].
     #+BEGIN_SRC emacs-lisp
       (set-face-attribute 'default nil :height 130)
       (set-default-font "Source Code Pro")
