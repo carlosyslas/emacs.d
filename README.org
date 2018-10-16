@@ -1,8 +1,17 @@
-* emacs.d
+* Emacs Config
+
+/This document follows the [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] paradigm to setup Emacs according to my needs./
 
   [[./img/screenshot1.png]]
 
-My personal emacs configuration
+** Install use-package
+   I prefer installing packages with [[https://github.com/jwiegley/use-package][use-package]] since it makes easier to organize code by grouping a package installation with it's configuration.
+
+   #+BEGIN_SRC emacs-lisp
+     (unless (package-installed-p 'use-package)
+         (package-refresh-contents)
+         (package-install 'use-package))
+   #+END_SRC
 
 ** Features
    -

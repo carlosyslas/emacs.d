@@ -15,3 +15,4 @@ games/
 url/
 var/
 /.mc-lists.el
+/README.el

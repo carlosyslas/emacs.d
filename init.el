@@ -13,6 +13,8 @@
 (require 'common)
 (require 'programing)
 
+(org-babel-load-file (expand-file-name "README.org" user-emacs-directory))
+
 (eval-when-compile
   (require 'use-package))
 
@@ -51,6 +53,15 @@
   (global-set-key (kbd "M-f") 'helm-find-files)
   (global-set-key (kbd "C-<tab>") 'helm-buffers-list))
 
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :config
+;;   (require 'lsp-imenu)
+;;   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
+
+;; (use-package lsp-javascript-flow
+;;   :ensure t)
+
 (use-package js2-refactor
   :ensure t)
 
@@ -71,6 +82,7 @@
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
                              (superword-mode 1)
                              (prettier-js-mode)
+                             ;;(lsp-javascript-flow-enable)
                              )))
 
 ;; Add syntax highlighting to jest snapshots
