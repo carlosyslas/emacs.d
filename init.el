@@ -298,17 +298,6 @@
 
 (blink-cursor-mode 0)
 
-;; Theme
-(set-face-attribute 'default nil :height 130)
-(use-package doom-themes
-  :ensure t
-  :config
-  (load-theme 'doom-one))
-
-(set-default-font "Source Code Pro")
-(setq frame-title-format "")
-;; (setq ns-use-proxy-icon nil)
-
 ;; Save and restore the session
 (desktop-save-mode 1)
 
