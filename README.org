@@ -4,7 +4,23 @@
 
   [[./img/screenshot1.png]]
 
-** Install use-package
+** Package management
+   Setup package sources as described in [[https://melpa.org/#/getting-started][MELPA's Getting Started Guide]].
+   #+BEGIN_SRC emacs-lisp
+     (require 'package)
+     (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                         (not (gnutls-available-p))))
+            (proto (if no-ssl "http" "https")))
+       ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+       (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+       ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+       (when (< emacs-major-version 24)
+         ;; For important compatibility libraries like cl-lib
+         (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+
+     (package-initialize)
+   #+END_SRC
+
    I prefer installing packages with [[https://github.com/jwiegley/use-package][use-package]] since it makes easier to organize code by grouping a package's installation with it's configuration.
 
    #+BEGIN_SRC emacs-lisp
@@ -43,9 +59,6 @@
    #+BEGIN_SRC emacs-lisp
      (setq frame-title-format "")
    #+END_SRC
-
-** Features
-   -
 
 ** Keyboard Shortcuts
 

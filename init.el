@@ -9,7 +9,6 @@
 (load-file-if-exists "custom.el")
 
 (add-to-list 'load-path "~/.emacs.d/self")
-(require 'package-manager)
 (require 'common)
 (require 'programing)
 
