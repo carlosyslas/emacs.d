@@ -27,7 +27,10 @@
      (unless (package-installed-p 'use-package)
          (package-refresh-contents)
          (package-install 'use-package))
+   #+END_SRC
 
+   Always ensure all pacckages get installed.
+   #+BEGIN_SRC emacs-lisp
      (setq use-package-always-ensure t)
    #+END_SRC
 
