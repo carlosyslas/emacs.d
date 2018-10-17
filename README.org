@@ -55,6 +55,8 @@
 
    #+RESULTS:
    | (M-0) | dired-jump            |
-   | (M-9) | self/toggle-spec-file |
-   | (M-a) | org-agenda            |
    | (M-s) | avy-goto-word-1       |
+   | (M-k) | ace-delete-window     |
+   | (M-j) | ace-window            |
+   | (M-a) | org-agenda            |
+   | (M-9) | self/toggle-spec-file |

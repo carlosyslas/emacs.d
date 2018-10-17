@@ -104,9 +104,9 @@
 
 (use-package ace-window
   :ensure t
+  :bind (("M-j" . ace-window)
+         ("M-k" . ace-delete-window))
   :config
-  (global-set-key (kbd "M-j") 'ace-window)
-  (global-set-key (kbd "M-k") 'ace-delete-window)
   (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
 
 (use-package git-gutter-fringe+
