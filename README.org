@@ -34,9 +34,9 @@
    #+BEGIN_SRC emacs-lisp
      (use-package magit
        :ensure t
+       :bind (("M-g" . magit-status))
        :config
-       (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-       (global-set-key (kbd "M-g") 'magit-status))
+       (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
    #+END_SRC
 
 ** Appearance
@@ -67,6 +67,7 @@
    #+END_SRC
 
    #+RESULTS:
+   | (M-g) | magit-status          |
    | (M-0) | dired-jump            |
    | (M-s) | avy-goto-word-1       |
    | (M-k) | ace-delete-window     |
