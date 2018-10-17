@@ -63,7 +63,6 @@
     I'm using [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots#doom-one][doom-one]] as theme.
     #+BEGIN_SRC emacs-lisp
       (use-package doom-themes
-        :ensure t
         :config
         (load-theme 'doom-one))
     #+END_SRC
