@@ -49,7 +49,7 @@
 
 ** Keyboard Shortcuts
 
-   #+BEGIN_SRC emacs-lisp :results table :tangle no
+   #+BEGIN_SRC emacs-lisp :results table :tangle no :exports results
      (mapcar (lambda (row) (list (car row) (car (cdr row)))) personal-keybindings)
    #+END_SRC
 
