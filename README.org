@@ -85,10 +85,18 @@
    #+END_SRC
 
    #+RESULTS:
-   | (M-g) | magit-status          |
-   | (M-0) | dired-jump            |
-   | (M-s) | avy-goto-word-1       |
-   | (M-k) | ace-delete-window     |
-   | (M-j) | ace-window            |
-   | (M-a) | org-agenda            |
-   | (M-9) | self/toggle-spec-file |
+   | (C-x t)   | eshell                         |
+   | (M-,)     | self/open-config-file          |
+   | (C-<tab>) | helm-buffers-list              |
+   | (M-f)     | helm-find-files                |
+   | (M-x)     | helm-M-x                       |
+   | (M-F)     | projectile-ag                  |
+   | (M-o)     | helm-projectile-find-file      |
+   | (M-p)     | helm-projectile-switch-project |
+   | (M-g)     | magit-status                   |
+   | (M-0)     | dired-jump                     |
+   | (M-s)     | avy-goto-word-1                |
+   | (M-k)     | ace-delete-window              |
+   | (M-j)     | ace-window                     |
+   | (M-a)     | org-agenda                     |
+   | (M-9)     | self/toggle-spec-file          |

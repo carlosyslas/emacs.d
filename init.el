@@ -33,13 +33,12 @@
   (add-hook 'ag-mode-hook 'winnow-mode))
 
 (use-package helm-projectile
-  :config
-  (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
-  (global-set-key (kbd "M-o") 'helm-projectile-find-file)
-  (global-set-key (kbd "M-F") 'projectile-ag)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "M-f") 'helm-find-files)
-  (global-set-key (kbd "C-<tab>") 'helm-buffers-list))
+  :bind (("M-p" . helm-projectile-switch-project)
+  ("M-o" . helm-projectile-find-file)
+  ("M-F" . projectile-ag)
+  ("M-x" . helm-M-x)
+  ("M-f" . helm-find-files)
+  ("C-<tab>" . helm-buffers-list)))
 
 ;; (use-package lsp-mode
 ;;   :config
@@ -196,8 +195,7 @@
   :after treemacs projectile)
 
 (use-package expand-region
-  :config
-  (global-set-key (kbd "M-e") 'er/expand-region))
+  :bind (("M-e" . er/expand-region)))
 
 (use-package smartparens
   :config
@@ -243,9 +241,9 @@
       ""
       (replace-regexp-in-string "\\([A-Z]\\)" "-\\1" string)))))
 
-(global-set-key (kbd "M-,") 'self/open-config-file)
+(bind-key "M-," 'self/open-config-file)
 
-(global-set-key (kbd "C-x t") 'eshell)
+(bind-key "C-x t" 'eshell)
 (setq eshell-glob-case-insensitive t)
 (setq eshell-cmpl-ignore-case t)
 
