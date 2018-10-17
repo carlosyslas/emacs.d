@@ -18,26 +18,21 @@
   (require 'use-package))
 
 (use-package evil
-  :ensure t
   :config
   (evil-mode))
 
 (use-package projectile
-  :ensure t
   :config
   (projectile-global-mode)
   (recentf-mode 1))
 
-(use-package ag
-  :ensure t)
+(use-package ag)
 
 (use-package winnow
-  :ensure t
   :config
   (add-hook 'ag-mode-hook 'winnow-mode))
 
 (use-package helm-projectile
-  :ensure t
   :config
   (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
   (global-set-key (kbd "M-o") 'helm-projectile-find-file)
@@ -47,25 +42,19 @@
   (global-set-key (kbd "C-<tab>") 'helm-buffers-list))
 
 ;; (use-package lsp-mode
-;;   :ensure t
 ;;   :config
 ;;   (require 'lsp-imenu)
 ;;   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
 
-;; (use-package lsp-javascript-flow
-;;   :ensure t)
+;; (use-package lsp-javascript-flow)
 
-(use-package js2-refactor
-  :ensure t)
+(use-package js2-refactor)
 
-(use-package xref-js2
-  :ensure t)
+(use-package xref-js2)
 
-(use-package prettier-js
-  :ensure t)
+(use-package prettier-js)
 
 (use-package rjsx-mode
-  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
   (define-key js2-mode-map (kbd "M-.") nil)
@@ -80,36 +69,28 @@
 
 ;; Add syntax highlighting to jest snapshots
 (use-package web-mode
-  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.snap$" . web-mode)))
 
-(use-package flycheck-flow
-  :ensure t
-  )
+(use-package flycheck-flow)
 
-(use-package go-mode
-  :ensure t)
+(use-package go-mode)
 
-(use-package indium
-  :ensure t)
+(use-package indium)
 
 ;;* Org mode
 (use-package org-bullets
-  :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 (bind-key "M-a" 'org-agenda)
 
 (use-package ace-window
-  :ensure t
   :bind (("M-j" . ace-window)
          ("M-k" . ace-delete-window))
   :config
   (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
 
 (use-package git-gutter-fringe+
-  :ensure t
   :config
   (global-git-gutter+-mode)
   (setq-default fringes-outside-margins t)
@@ -170,42 +151,33 @@
     "XXXX...."))
 
 (use-package company
-  :ensure t
   :config
   (global-company-mode))
 
 (use-package yasnippet
-  :ensure t
   :config
   (yas-global-mode))
 
-(use-package flx
-  :ensure t)
+(use-package flx)
 
-(use-package company-flx
-  :ensure t)
+(use-package company-flx)
 
 (use-package helm
-  :ensure t
   :config
   (require 'helm-config))
 
 (use-package avy
-  :ensure t
   :bind (("M-s" . avy-goto-word-1)))
 
-(use-package bind-key
-  :ensure t)
+(use-package bind-key)
 
 ;;* Dired config
 (require 'dired)
 (bind-key "M-0" 'dired-jump)
 (setq dired-listing-switches "-ah")
-(use-package dired-narrow
-  :ensure t)
+(use-package dired-narrow)
 
 (use-package dired-sidebar
-  :ensure t
   ;;:bind (("M-0" . dired-sidebar-toggle-sidebar))
   :commands (dired-sidebar-toggle-sidebar)
   :init
@@ -218,49 +190,39 @@
   (setq dired-sidebar-theme 'vscode))
 
 (use-package treemacs-evil
-  :after treemacs evil
-  :ensure t)
+  :after treemacs evil)
 
 (use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
+  :after treemacs projectile)
 
 (use-package expand-region
-  :ensure t
   :config
   (global-set-key (kbd "M-e") 'er/expand-region))
 
 (use-package smartparens
-  :ensure t
   :config
   (require 'smartparens-config))
 
-(use-package paradox
-  :ensure t)
+(use-package paradox)
 
 (use-package nlinum
-  :ensure t
   :config
   (setq nlinum-highlight-current-line t)) ;; TODO: Not sure yet
 
 ;; Perspective mode is not working well with desktop-save-mode
 ;; (use-package perspective
-;;   :ensure t
 ;;   :config
 ;;   (persp-mode)) ;; TODO came up with some better keybindings
 
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (exec-path-from-shell-initialize))
 
 (use-package all-the-icons-dired
-  :ensure t
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
-(use-package restclient
-  :ensure t)
+(use-package restclient)
 
 (winner-mode 1)
 

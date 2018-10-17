@@ -27,6 +27,8 @@
      (unless (package-installed-p 'use-package)
          (package-refresh-contents)
          (package-install 'use-package))
+
+     (setq use-package-always-ensure t)
    #+END_SRC
 
 ** Mac OS Specific
@@ -48,7 +50,6 @@
    Install magit and make it so it always opens in the same window instead of opennig a new one.
    #+BEGIN_SRC emacs-lisp
      (use-package magit
-       :ensure t
        :bind (("M-g" . magit-status))
        :config
        (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
