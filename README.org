@@ -13,6 +13,16 @@
          (package-install 'use-package))
    #+END_SRC
 
+** Version Control
+   Install magit and make it so it always opens in the same window instead of opennig a new one.
+   #+BEGIN_SRC emacs-lisp
+     (use-package magit
+       :ensure t
+       :config
+       (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+       (global-set-key (kbd "M-g") 'magit-status))
+   #+END_SRC
+
 ** Appearance
 *** Theme
     I'm using [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots#doom-one][doom-one]] as theme.
@@ -39,16 +49,12 @@
 
 ** Keyboard Shortcuts
 
-   | Key     | Function                 |
-   |---------+--------------------------|
-   | M-p     | Switch Project           |
-   | M-o     | Find File in Project     |
-   | M-F     | Search String in Project |
-   | M-f     | Find File                |
-   | C-<tab> | Show buffers list        |
-   | M-j     | Jump to window           |
-   | M-k     | Kill window              |
-   | M-s     | Jump to word             |
-   | M-e     | Expand region            |
-   | M-,     | Open init file           |
-   | C-x t   | Open eshell              |
+   #+BEGIN_SRC emacs-lisp :results table :tangle no
+     (mapcar (lambda (row) (list (car row) (car (cdr row)))) personal-keybindings)
+   #+END_SRC
+
+   #+RESULTS:
+   | (M-0) | dired-jump            |
+   | (M-9) | self/toggle-spec-file |
+   | (M-a) | org-agenda            |
+   | (M-s) | avy-goto-word-1       |

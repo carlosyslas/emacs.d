@@ -23,12 +23,6 @@
   :config
   (evil-mode))
 
-(use-package magit
-  :ensure t
-  :config
-  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  (global-set-key (kbd "M-g") 'magit-status))
-
 (use-package projectile
   :ensure t
   :config
