@@ -55,21 +55,6 @@
      (bind-key "C-x t" 'eshell)
    #+END_SRC
 
-** Mac OS Specific
-   #+BEGIN_SRC emacs-lisp
-     (setq is-mac (equal system-type 'darwin))
-
-     (when is-mac
-       ;; Maximize frame
-       (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
-       ;; Set option to nil to enable extrange chars
-       (setq mac-option-modifier nil)
-       ;; Use control from Meta
-       (setq ns-command-modifier (quote meta))
-       ;; Set right option to control
-       (setq mac-right-option-modifier 'control))
-   #+END_SRC
-
 ** Version Control
    Install [[https://magit.vc/][magit]] and make it so it always opens in the same window instead of opennig a new one.
    #+BEGIN_SRC emacs-lisp
@@ -165,6 +150,22 @@
        ("C-<tab>" . helm-buffers-list)))
    #+END_SRC
 
+** Coding
+
+*** Javascript
+    Install [[https://github.com/prettier/prettier-emacs][prettier-js]] to automatically format my ~js~ files.
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package prettier-js)
+    #+END_SRC
+
+    Provide syntax highlighting for ~jest~ snapshots.
+    #+BEGIN_SRC emacs-lisp
+      (use-package web-mode
+        :config
+        (add-to-list 'auto-mode-alist '("\\.snap$" . web-mode)))
+    #+END_SRC
+
 ** Org
    Install [[https://github.com/sabof/org-bullets][org-bullets]] in order to have a fancier org experience.
    #+BEGIN_SRC emacs-lisp
@@ -205,6 +206,21 @@
      (use-package nlinum
        :config
        (setq nlinum-highlight-current-line t))
+   #+END_SRC
+
+** Mac OS Specific
+   #+BEGIN_SRC emacs-lisp
+     (setq is-mac (equal system-type 'darwin))
+
+     (when is-mac
+       ;; Maximize frame
+       (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
+       ;; Set option to nil to enable extrange chars
+       (setq mac-option-modifier nil)
+       ;; Use control from Meta
+       (setq ns-command-modifier (quote meta))
+       ;; Set right option to control
+       (setq mac-right-option-modifier 'control))
    #+END_SRC
 
 ** Keyboard Shortcuts

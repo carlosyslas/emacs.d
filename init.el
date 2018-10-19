@@ -40,8 +40,6 @@
 
 (use-package xref-js2)
 
-(use-package prettier-js)
-
 (use-package rjsx-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
@@ -54,11 +52,6 @@
                              (prettier-js-mode)
                              ;;(lsp-javascript-flow-enable)
                              )))
-
-;; Add syntax highlighting to jest snapshots
-(use-package web-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.snap$" . web-mode)))
 
 (use-package flycheck-flow)
 
