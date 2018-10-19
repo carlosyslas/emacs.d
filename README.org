@@ -122,6 +122,21 @@
          "XXXX...."))
    #+END_SRC
 
+** Org
+   Install [[https://github.com/sabof/org-bullets][org-bullets]] in order to have a fancier org experience.
+   #+BEGIN_SRC emacs-lisp
+     (use-package org-bullets
+       :config
+       (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+   #+END_SRC
+
+  [[./img/screenshot2.png]]
+
+  Org agenda configuration.
+  #+BEGIN_SRC emacs-lisp
+     (bind-key "M-a" 'org-agenda)
+  #+END_SRC
+
 ** Appearance
 *** Theme
     I'm using [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots#doom-one][doom-one]] as theme.

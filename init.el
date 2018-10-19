@@ -9,6 +9,8 @@
 (load-file-if-exists "custom.el")
 
 (add-to-list 'load-path "~/.emacs.d/self")
+;;(require 'self)
+(load-file "~/.emacs.d/self.el")
 (require 'common)
 (require 'programing)
 
@@ -77,12 +79,6 @@
 
 (use-package indium)
 
-;;* Org mode
-(use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-(bind-key "M-a" 'org-agenda)
-
 (use-package ace-window
   :bind (("M-j" . ace-window)
          ("M-k" . ace-delete-window))
@@ -141,8 +137,6 @@
   :config
   (require 'smartparens-config))
 
-(use-package paradox)
-
 ;; Perspective mode is not working well with desktop-save-mode
 ;; (use-package perspective
 ;;   :config
@@ -163,19 +157,6 @@
 ;; TODO mu4e, undo-tree
 
 ;; TODO move this function into the self directory
-(defun self/open-config-file ()
-  "Opens my configuration file"
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(defun self/camel-to-lisp-case (string)
-  "Transform from CamelCase to lisp-case"
-  (let ((case-fold-search nil))
-    (downcase
-     (replace-regexp-in-string
-      "^-"
-      ""
-      (replace-regexp-in-string "\\([A-Z]\\)" "-\\1" string)))))
 
 (bind-key "M-," 'self/open-config-file)
 
