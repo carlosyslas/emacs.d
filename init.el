@@ -89,66 +89,6 @@
   :config
   (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
 
-(use-package git-gutter-fringe+
-  :config
-  (global-git-gutter+-mode)
-  (setq-default fringes-outside-margins t)
-  (fringe-helper-define 'git-gutter-fr+-added nil
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX.....")
-  (fringe-helper-define 'git-gutter-fr+-modified nil
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    "XXX....."
-    )
-  (fringe-helper-define 'git-gutter-fr+-deleted nil
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "........"
-    "X......."
-    "XX......"
-    "XXX....."
-    "XXXX...."))
-
 (use-package company
   :config
   (global-company-mode))
@@ -202,10 +142,6 @@
   (require 'smartparens-config))
 
 (use-package paradox)
-
-(use-package nlinum
-  :config
-  (setq nlinum-highlight-current-line t)) ;; TODO: Not sure yet
 
 ;; Perspective mode is not working well with desktop-save-mode
 ;; (use-package perspective

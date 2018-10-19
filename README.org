@@ -50,12 +50,76 @@
    #+END_SRC
 
 ** Version Control
-   Install magit and make it so it always opens in the same window instead of opennig a new one.
+   Install [[https://magit.vc/][magit]] and make it so it always opens in the same window instead of opennig a new one.
    #+BEGIN_SRC emacs-lisp
      (use-package magit
        :bind (("M-g" . magit-status))
        :config
        (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+   #+END_SRC
+
+   Configure [[https://github.com/nonsequitur/git-gutter-fringe-plus][git-gutter-fringe+]] to display simple shapes to indicate file changes.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package git-gutter-fringe+
+       :config
+       (global-git-gutter+-mode)
+       (setq-default fringes-outside-margins t)
+       (fringe-helper-define 'git-gutter-fr+-added nil
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX.....")
+       (fringe-helper-define 'git-gutter-fr+-modified nil
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         "XXX....."
+         )
+       (fringe-helper-define 'git-gutter-fr+-deleted nil
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "........"
+         "X......."
+         "XX......"
+         "XXX....."
+         "XXXX...."))
    #+END_SRC
 
 ** Appearance
@@ -78,15 +142,29 @@
      (setq frame-title-format "")
    #+END_SRC
 
+   Use [[http://elpa.gnu.org/packages/nlinum.html][nlinum]] to highlight current line.
+   #+BEGIN_SRC emacs-lisp
+     (use-package nlinum
+       :config
+       (setq nlinum-highlight-current-line t))
+   #+END_SRC
+
 ** Keyboard Shortcuts
 
    #+BEGIN_SRC emacs-lisp :results table :tangle no :exports results
+     ;; Execute this code block by C-c C-c in order to update the shourtcuts table
      (mapcar (lambda (row) (list (car row) (car (cdr row)))) personal-keybindings)
    #+END_SRC
 
    #+RESULTS:
    | (C-x t)   | eshell                         |
    | (M-,)     | self/open-config-file          |
+   | (M-e)     | er/expand-region               |
+   | (M-0)     | dired-jump                     |
+   | (M-s)     | avy-goto-word-1                |
+   | (M-k)     | ace-delete-window              |
+   | (M-j)     | ace-window                     |
+   | (M-a)     | org-agenda                     |
    | (C-<tab>) | helm-buffers-list              |
    | (M-f)     | helm-find-files                |
    | (M-x)     | helm-M-x                       |
@@ -94,9 +172,4 @@
    | (M-o)     | helm-projectile-find-file      |
    | (M-p)     | helm-projectile-switch-project |
    | (M-g)     | magit-status                   |
-   | (M-0)     | dired-jump                     |
-   | (M-s)     | avy-goto-word-1                |
-   | (M-k)     | ace-delete-window              |
-   | (M-j)     | ace-window                     |
-   | (M-a)     | org-agenda                     |
    | (M-9)     | self/toggle-spec-file          |

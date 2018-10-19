@@ -16,3 +16,4 @@ url/
 var/
 /.mc-lists.el
 /README.el
+/.DS_Store
