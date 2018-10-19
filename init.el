@@ -142,10 +142,6 @@
 ;;   :config
 ;;   (persp-mode)) ;; TODO came up with some better keybindings
 
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
-
 (use-package all-the-icons-dired
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
@@ -159,10 +155,6 @@
 ;; TODO move this function into the self directory
 
 (bind-key "M-," 'self/open-config-file)
-
-(bind-key "C-x t" 'eshell)
-(setq eshell-glob-case-insensitive t)
-(setq eshell-cmpl-ignore-case t)
 
 (global-subword-mode t)
 
