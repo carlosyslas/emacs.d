@@ -143,6 +143,28 @@
          "XXXX...."))
    #+END_SRC
 
+** Project management
+   I use [[https://github.com/bbatsov/projectile][projectile]] to manage my projects. Next code block installs it and configure it to always have a list of the recent files I edited.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package projectile
+       :config
+       (projectile-global-mode)
+       (recentf-mode 1))
+   #+END_SRC
+
+   Just to have a nicer interface I prefer te use helm-projectile.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package helm-projectile
+       :bind (("M-p" . helm-projectile-switch-project)
+       ("M-o" . helm-projectile-find-file)
+       ("M-F" . projectile-ag)
+       ("M-x" . helm-M-x)
+       ("M-f" . helm-find-files)
+       ("C-<tab>" . helm-buffers-list)))
+   #+END_SRC
+
 ** Org
    Install [[https://github.com/sabof/org-bullets][org-bullets]] in order to have a fancier org experience.
    #+BEGIN_SRC emacs-lisp

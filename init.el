@@ -23,24 +23,11 @@
   :config
   (evil-mode))
 
-(use-package projectile
-  :config
-  (projectile-global-mode)
-  (recentf-mode 1))
-
 (use-package ag)
 
 (use-package winnow
   :config
   (add-hook 'ag-mode-hook 'winnow-mode))
-
-(use-package helm-projectile
-  :bind (("M-p" . helm-projectile-switch-project)
-  ("M-o" . helm-projectile-find-file)
-  ("M-F" . projectile-ag)
-  ("M-x" . helm-M-x)
-  ("M-f" . helm-find-files)
-  ("C-<tab>" . helm-buffers-list)))
 
 ;; (use-package lsp-mode
 ;;   :config
@@ -111,24 +98,6 @@
 (bind-key "M-0" 'dired-jump)
 (setq dired-listing-switches "-ah")
 (use-package dired-narrow)
-
-(use-package dired-sidebar
-  ;;:bind (("M-0" . dired-sidebar-toggle-sidebar))
-  :commands (dired-sidebar-toggle-sidebar)
-  :init
-  (add-hook 'dired-sidebar-mode-hook
-            (lambda ()
-              (unless (file-remote-p default-directory)
-                (auto-revert-mode)))
-            )
-  :config
-  (setq dired-sidebar-theme 'vscode))
-
-(use-package treemacs-evil
-  :after treemacs evil)
-
-(use-package treemacs-projectile
-  :after treemacs projectile)
 
 (use-package expand-region
   :bind (("M-e" . er/expand-region)))
