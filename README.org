@@ -86,8 +86,7 @@
        :bind (("M-j" . ace-window)
               ("M-k" . ace-delete-window))
        :config
-       ;; uiojklm,.
-       (setq aw-keys '(?u ?i ?o ?j ?k ?l ?m ?, ?,)))
+       (setq aw-keys '(?u ?i ?o ?j ?k ?l ?m ?, ?.)))
    #+END_SRC
 
    #+RESULTS:
