@@ -55,15 +55,7 @@
 
 (use-package flycheck-flow)
 
-(use-package go-mode)
-
 (use-package indium)
-
-(use-package ace-window
-  :bind (("M-j" . ace-window)
-         ("M-k" . ace-delete-window))
-  :config
-  (setq aw-keys '(?g ?c ?r ?h ?t ?n ?m ?w ?v)))
 
 (use-package company
   :config

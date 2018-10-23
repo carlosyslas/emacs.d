@@ -55,6 +55,44 @@
      (bind-key "C-x t" 'eshell)
    #+END_SRC
 
+** Coding
+
+*** Javascript
+    Install [[https://github.com/prettier/prettier-emacs][prettier-js]] to automatically format my ~js~ files.
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package prettier-js)
+    #+END_SRC
+
+    Provide syntax highlighting for ~jest~ snapshots.
+    #+BEGIN_SRC emacs-lisp
+      (use-package web-mode
+        :config
+        (add-to-list 'auto-mode-alist '("\\.snap$" . web-mode)))
+    #+END_SRC
+
+
+*** Go
+    Setup [[https://github.com/dominikh/go-mode.el][go-mode]].
+    #+BEGIN_SRC emacs-lisp
+      (use-package go-mode)
+    #+END_SRC
+
+** Window management
+   I use [[https://github.com/abo-abo/ace-window][ace-window]] to easily jump between opened windows.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package ace-window
+       :bind (("M-j" . ace-window)
+              ("M-k" . ace-delete-window))
+       :config
+       ;; uiojklm,.
+       (setq aw-keys '(?u ?i ?o ?j ?k ?l ?m ?, ?,)))
+   #+END_SRC
+
+   #+RESULTS:
+   : ace-delete-window
+
 ** Version Control
    Install [[https://magit.vc/][magit]] and make it so it always opens in the same window instead of opennig a new one.
    #+BEGIN_SRC emacs-lisp
@@ -149,22 +187,6 @@
        ("M-f" . helm-find-files)
        ("C-<tab>" . helm-buffers-list)))
    #+END_SRC
-
-** Coding
-
-*** Javascript
-    Install [[https://github.com/prettier/prettier-emacs][prettier-js]] to automatically format my ~js~ files.
-
-    #+BEGIN_SRC emacs-lisp
-      (use-package prettier-js)
-    #+END_SRC
-
-    Provide syntax highlighting for ~jest~ snapshots.
-    #+BEGIN_SRC emacs-lisp
-      (use-package web-mode
-        :config
-        (add-to-list 'auto-mode-alist '("\\.snap$" . web-mode)))
-    #+END_SRC
 
 ** Org
    Install [[https://github.com/sabof/org-bullets][org-bullets]] in order to have a fancier org experience.
