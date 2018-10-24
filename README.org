@@ -187,6 +187,16 @@
        ("C-<tab>" . helm-buffers-list)))
    #+END_SRC
 
+   In order to perform quick text searches in a project I'm using [[https://github.com/Wilfred/ag.el][ag]] as a frontend for [[https://github.com/ggreer/the_silver_searcher][The Silver Searcher]]. Projectile already has a function ~projectile-ag~ that uses this package to perform text searches in a project.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package ag)
+
+     (use-package winnow
+       :config
+       (add-hook 'ag-mode-hook 'winnow-mode))
+   #+END_SRC
+
 ** Org
    Install [[https://github.com/sabof/org-bullets][org-bullets]] in order to have a fancier org experience.
    #+BEGIN_SRC emacs-lisp

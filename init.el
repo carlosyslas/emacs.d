@@ -23,12 +23,6 @@
   :config
   (evil-mode))
 
-(use-package ag)
-
-(use-package winnow
-  :config
-  (add-hook 'ag-mode-hook 'winnow-mode))
-
 ;; (use-package lsp-mode
 ;;   :config
 ;;   (require 'lsp-imenu)
