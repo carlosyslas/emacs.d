@@ -212,6 +212,14 @@
      (bind-key "M-a" 'org-agenda)
   #+END_SRC
 
+  Install org-journal
+
+  #+BEGIN_SRC emacs-lisp
+    (use-package org-journal
+      :config
+      (setq org-journal-dir "~/Dropbox/journal"))
+  #+END_SRC
+
 ** Appearance
 *** Theme
     I'm using [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots#doom-one][doom-one]] as theme.
