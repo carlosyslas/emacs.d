@@ -57,6 +57,17 @@
 
 ** Coding
 
+   Setup [[http://company-mode.github.io/][company-mode]] for autocompletion.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package company
+       :config
+       (global-company-mode))
+
+     ;; TODO: configure company-flx
+     (use-package company-flx)
+   #+END_SRC
+
 *** Javascript
     Install [[https://github.com/prettier/prettier-emacs][prettier-js]] to automatically format my ~js~ files.
 
@@ -89,8 +100,13 @@
        (setq aw-keys '(?u ?i ?o ?j ?k ?l ?m ?, ?.)))
    #+END_SRC
 
-   #+RESULTS:
-   : ace-delete-window
+   Use [[https://github.com/wasamasa/eyebrowse][eyebrowse]] to manage multiple window spaces.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package eyebrowse
+       :config
+       (eyebrowse-mode t))
+   #+END_SRC
 
 ** Version Control
    Install [[https://magit.vc/][magit]] and make it so it always opens in the same window instead of opennig a new one.
@@ -171,6 +187,7 @@
    #+BEGIN_SRC emacs-lisp
      (use-package projectile
        :config
+       (setq projectile-enable-caching t)
        (projectile-global-mode)
        (recentf-mode 1))
    #+END_SRC
@@ -262,13 +279,10 @@
    #+END_SRC
 
    #+RESULTS:
-   | (C-x t)   | eshell                         |
    | (M-,)     | self/open-config-file          |
    | (M-e)     | er/expand-region               |
    | (M-0)     | dired-jump                     |
    | (M-s)     | avy-goto-word-1                |
-   | (M-k)     | ace-delete-window              |
-   | (M-j)     | ace-window                     |
    | (M-a)     | org-agenda                     |
    | (C-<tab>) | helm-buffers-list              |
    | (M-f)     | helm-find-files                |
@@ -277,4 +291,7 @@
    | (M-o)     | helm-projectile-find-file      |
    | (M-p)     | helm-projectile-switch-project |
    | (M-g)     | magit-status                   |
+   | (M-k)     | ace-delete-window              |
+   | (M-j)     | ace-window                     |
+   | (C-x t)   | eshell                         |
    | (M-9)     | self/toggle-spec-file          |

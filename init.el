@@ -51,17 +51,11 @@
 
 (use-package indium)
 
-(use-package company
-  :config
-  (global-company-mode))
-
 (use-package yasnippet
   :config
   (yas-global-mode))
 
 (use-package flx)
-
-(use-package company-flx)
 
 (use-package helm
   :config
