@@ -1,5 +1,3 @@
-(package-initialize)
-
 ;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (defun load-file-if-exists (file-name)
@@ -11,10 +9,11 @@
 (add-to-list 'load-path "~/.emacs.d/self")
 ;;(require 'self)
 (load-file "~/.emacs.d/self.el")
-(require 'common)
-(require 'programing)
 
 (org-babel-load-file (expand-file-name "README.org" user-emacs-directory))
+
+(require 'common)
+(require 'programing)
 
 (eval-when-compile
   (require 'use-package))

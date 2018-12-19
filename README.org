@@ -25,8 +25,8 @@
 
    #+BEGIN_SRC emacs-lisp
      (unless (package-installed-p 'use-package)
-         (package-refresh-contents)
-         (package-install 'use-package))
+       (package-refresh-contents)
+       (package-install 'use-package))
    #+END_SRC
 
    Always ensure all pacckages get installed.
@@ -249,7 +249,7 @@
     My font is [[https://github.com/adobe-fonts/source-code-pro][source-code-pro]].
     #+BEGIN_SRC emacs-lisp
       (set-face-attribute 'default nil :height 130)
-      (set-default-font "Source Code Pro")
+      (set-frame-font "Source Code Pro")
     #+END_SRC
 *** Extra tweaks
     Make the ~title-bar~ blank.
@@ -259,9 +259,6 @@
 
    Use [[http://elpa.gnu.org/packages/nlinum.html][nlinum]] to highlight current line.
    #+BEGIN_SRC emacs-lisp
-     (use-package nlinum
-       :config
-       (setq nlinum-highlight-current-line t))
    #+END_SRC
 
 ** Mac OS Specific
