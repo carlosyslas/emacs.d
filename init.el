@@ -18,10 +18,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package evil
-  :config
-  (evil-mode))
-
 ;; (use-package lsp-mode
 ;;   :config
 ;;   (require 'lsp-imenu)
@@ -100,9 +96,6 @@
 (global-subword-mode t)
 
 (blink-cursor-mode 0)
-
-;; Save and restore the session
-(desktop-save-mode 1)
 
 ;; (require 'astrologit-mode)
 ; TODO: make mode for jest
