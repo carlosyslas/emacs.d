@@ -64,7 +64,6 @@
 ;;* Dired config
 (require 'dired)
 (bind-key "C-c d" 'dired-jump)
-(setq dired-listing-switches "-ah")
 (use-package dired-narrow)
 
 (use-package expand-region

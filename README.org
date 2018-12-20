@@ -89,6 +89,15 @@
       (use-package go-mode)
     #+END_SRC
 
+*** Python
+    Setup [[https://github.com/emacs-lsp/lsp-python][lsp-python]]
+    #+BEGIN_SRC emacs-lisp
+      (use-package lsp-mode
+        :config
+        (require 'lsp-clients)
+        :hook (python-mode . lsp))
+    #+END_SRC
+
 ** Window management
    I use [[https://github.com/abo-abo/ace-window][ace-window]] to easily jump between opened windows.
 
