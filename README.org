@@ -52,7 +52,7 @@
 
    Set keyboard shortcut for ~eshell~.
    #+BEGIN_SRC emacs-lisp
-     (bind-key "C-x t" 'eshell)
+     (bind-key "C-c t" 'eshell)
    #+END_SRC
 
 ** Coding
@@ -94,8 +94,8 @@
 
    #+BEGIN_SRC emacs-lisp
      (use-package ace-window
-       :bind (("M-j" . ace-window)
-              ("M-k" . ace-delete-window))
+       :bind (("C-c j" . ace-window)
+              ("C-c k" . ace-delete-window))
        :config
        (setq aw-keys '(?u ?i ?o ?j ?k ?l ?m ?, ?.)))
    #+END_SRC
@@ -112,7 +112,7 @@
    Install [[https://magit.vc/][magit]] and make it so it always opens in the same window instead of opennig a new one.
    #+BEGIN_SRC emacs-lisp
      (use-package magit
-       :bind (("M-g" . magit-status))
+       :bind (("C-c g" . magit-status))
        :config
        (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
    #+END_SRC
@@ -196,11 +196,11 @@
 
    #+BEGIN_SRC emacs-lisp
      (use-package helm-projectile
-       :bind (("M-p" . helm-projectile-switch-project)
-       ("M-o" . helm-projectile-find-file)
-       ("M-F" . projectile-ag)
+       :bind (("C-c p" . helm-projectile-switch-project)
+       ("C-c o" . helm-projectile-find-file)
+       ("C-c F" . projectile-ag)
        ("M-x" . helm-M-x)
-       ("M-f" . helm-find-files)
+       ("C-c f" . helm-find-files)
        ("C-<tab>" . helm-buffers-list)))
    #+END_SRC
 
@@ -226,7 +226,7 @@
 
   Org agenda configuration.
   #+BEGIN_SRC emacs-lisp
-     (bind-key "M-a" 'org-agenda)
+     (bind-key "C-c a" 'org-agenda)
   #+END_SRC
 
   Install org-journal
@@ -284,19 +284,19 @@
    #+END_SRC
 
    #+RESULTS:
-   | (M-,)     | self/open-config-file          |
-   | (M-e)     | er/expand-region               |
-   | (M-0)     | dired-jump                     |
-   | (M-s)     | avy-goto-word-1                |
-   | (M-a)     | org-agenda                     |
-   | (C-<tab>) | helm-buffers-list              |
-   | (M-f)     | helm-find-files                |
-   | (M-x)     | helm-M-x                       |
-   | (M-F)     | projectile-ag                  |
-   | (M-o)     | helm-projectile-find-file      |
-   | (M-p)     | helm-projectile-switch-project |
-   | (M-g)     | magit-status                   |
-   | (M-k)     | ace-delete-window              |
-   | (M-j)     | ace-window                     |
-   | (C-x t)   | eshell                         |
+   | (C-c ,)   | self/open-config-file          |
+   | (C-c e)   | er/expand-region               |
+   | (C-c d)   | dired-jump                     |
+   | (C-c s)   | avy-goto-word-1                |
    | (M-9)     | self/toggle-spec-file          |
+   | (C-c a)   | org-agenda                     |
+   | (C-<tab>) | helm-buffers-list              |
+   | (C-c f)   | helm-find-files                |
+   | (M-x)     | helm-M-x                       |
+   | (C-c F)   | projectile-ag                  |
+   | (C-c o)   | helm-projectile-find-file      |
+   | (C-c p)   | helm-projectile-switch-project |
+   | (C-c g)   | magit-status                   |
+   | (C-c k)   | ace-delete-window              |
+   | (C-c j)   | ace-window                     |
+   | (C-c t)   | eshell                         |

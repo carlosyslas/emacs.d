@@ -57,18 +57,18 @@
   (require 'helm-config))
 
 (use-package avy
-  :bind (("M-s" . avy-goto-word-1)))
+  :bind (("C-c s" . avy-goto-word-1)))
 
 (use-package bind-key)
 
 ;;* Dired config
 (require 'dired)
-(bind-key "M-0" 'dired-jump)
+(bind-key "C-c d" 'dired-jump)
 (setq dired-listing-switches "-ah")
 (use-package dired-narrow)
 
 (use-package expand-region
-  :bind (("M-e" . er/expand-region)))
+  :bind (("C-c e" . er/expand-region)))
 
 (use-package smartparens
   :config
@@ -91,7 +91,7 @@
 
 ;; TODO move this function into the self directory
 
-(bind-key "M-," 'self/open-config-file)
+(bind-key "C-c ," 'self/open-config-file)
 
 (global-subword-mode t)
 
