@@ -259,17 +259,12 @@
     My font is [[https://github.com/adobe-fonts/source-code-pro][source-code-pro]].
     #+BEGIN_SRC emacs-lisp
       (set-face-attribute 'default nil :height 130)
-      (set-frame-font "Source Code Pro")
+      (set-frame-font "Monaco")
     #+END_SRC
 *** Extra tweaks
     Make the ~title-bar~ blank.
    #+BEGIN_SRC emacs-lisp
      (setq frame-title-format "")
-   #+END_SRC
-
-   Disable transient mark mode for now.
-   #+BEGIN_SRC emacs-lisp
-     (transient-mark-mode -1)
    #+END_SRC
 
    Use [[http://elpa.gnu.org/packages/nlinum.html][nlinum]] to highlight current line.
