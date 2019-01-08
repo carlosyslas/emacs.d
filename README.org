@@ -62,10 +62,30 @@
    #+BEGIN_SRC emacs-lisp
      (use-package company
        :config
+       (setq company-idle-delay 0.2)
        (global-company-mode))
 
      ;; TODO: configure company-flx
      (use-package company-flx)
+   #+END_SRC
+
+   Add flycheck
+   #+BEGIN_SRC emacs-lisp
+     (use-package flycheck
+       :init (global-flycheck-mode))
+   #+END_SRC
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package ivy
+       :custom
+       (ivy-use-virtual-buffers t)
+       :config
+       (ivy-mode))
+
+
+     (use-package swiper
+       :bind
+       (("C-s" . swiper)))
    #+END_SRC
 
 *** Javascript
@@ -93,10 +113,7 @@
 *** Python
     Setup [[https://github.com/emacs-lsp/lsp-python][lsp-python]]
     #+BEGIN_SRC emacs-lisp
-      (use-package lsp-mode
-        :config
-        (require 'lsp-clients)
-        :hook (python-mode . lsp))
+      (use-package eglot)
     #+END_SRC
 
 ** Window management
@@ -202,16 +219,16 @@
        (recentf-mode 1))
    #+END_SRC
 
-   Just to have a nicer interface I prefer te use helm-projectile.
+   Just to have a nicer interface I prefer te use counsel-projectile.
 
    #+BEGIN_SRC emacs-lisp
-     (use-package helm-projectile
-       :bind (("C-c p" . helm-projectile-switch-project)
-       ("C-c o" . helm-projectile-find-file)
+     (use-package counsel-projectile
+       :bind (("C-c p" . counsel-projectile-switch-project)
+       ("C-c o" . counsel-projectile-find-file)
        ("C-c F" . projectile-ag)
-       ("M-x" . helm-M-x)
-       ("C-c f" . helm-find-files)
-       ("C-<tab>" . helm-buffers-list)))
+       ("M-x" . counsel-M-x)
+       ("C-c f" . counsel-find-files)
+       ("C-<tab>" . ivy-switch-buffer)))
    #+END_SRC
 
    In order to perform quick text searches in a project I'm using [[https://github.com/Wilfred/ag.el][ag]] as a frontend for [[https://github.com/ggreer/the_silver_searcher][The Silver Searcher]]. Projectile already has a function ~projectile-ag~ that uses this package to perform text searches in a project.
@@ -251,9 +268,9 @@
 *** Theme
     I'm using [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots#doom-one][doom-one]] as theme.
     #+BEGIN_SRC emacs-lisp
-      (use-package klere-theme
+      (use-package doom-themes
         :config
-        (load-theme 'klere))
+        (load-theme 'doom-nord))
     #+END_SRC
 *** Font
     My font is [[https://github.com/adobe-fonts/source-code-pro][source-code-pro]].
@@ -267,8 +284,17 @@
      (setq frame-title-format "")
    #+END_SRC
 
-   Use [[http://elpa.gnu.org/packages/nlinum.html][nlinum]] to highlight current line.
+   Install all-the-icons
    #+BEGIN_SRC emacs-lisp
+     (use-package all-the-icons)
+
+   #+END_SRC
+
+   Modeline
+   #+BEGIN_SRC emacs-lisp
+     (use-package doom-modeline
+       :defer t
+       :hook (after-init . doom-modeline-init))
    #+END_SRC
 
 ** Mac OS Specific
@@ -296,19 +322,20 @@
    #+END_SRC
 
    #+RESULTS:
-   | (C-c ,)   | self/open-config-file          |
-   | (C-c e)   | er/expand-region               |
-   | (C-c d)   | dired-jump                     |
-   | (C-c s)   | avy-goto-word-1                |
-   | (M-9)     | self/toggle-spec-file          |
-   | (C-c a)   | org-agenda                     |
-   | (C-<tab>) | helm-buffers-list              |
-   | (C-c f)   | helm-find-files                |
-   | (M-x)     | helm-M-x                       |
-   | (C-c F)   | projectile-ag                  |
-   | (C-c o)   | helm-projectile-find-file      |
-   | (C-c p)   | helm-projectile-switch-project |
-   | (C-c g)   | magit-status                   |
-   | (C-c k)   | ace-delete-window              |
-   | (C-c j)   | ace-window                     |
-   | (C-c t)   | eshell                         |
+   | (C-s)     | swiper                            |
+   | (C-c ,)   | self/open-config-file             |
+   | (C-c e)   | er/expand-region                  |
+   | (C-c d)   | dired-jump                        |
+   | (C-c s)   | avy-goto-word-1                   |
+   | (M-9)     | self/toggle-spec-file             |
+   | (C-c a)   | org-agenda                        |
+   | (C-<tab>) | ivy-switch-buffer                 |
+   | (C-c f)   | counsel-find-files                |
+   | (M-x)     | counsel-M-x                       |
+   | (C-c F)   | projectile-ag                     |
+   | (C-c o)   | counsel-projectile-find-file      |
+   | (C-c p)   | counsel-projectile-switch-project |
+   | (C-c g)   | magit-status                      |
+   | (C-c k)   | ace-delete-window                 |
+   | (C-c j)   | ace-window                        |
+   | (C-c t)   | eshell                            |
