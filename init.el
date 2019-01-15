@@ -6,6 +6,10 @@
       (load-file file-path))))
 (load-file-if-exists "custom.el")
 
+;; dev-env.el should contain the configuration specific for the
+;; current development environment.
+(load-file-if-exists "dev-env.el")
+
 (add-to-list 'load-path "~/.emacs.d/self")
 ;;(require 'self)
 (load-file "~/.emacs.d/self.el")
