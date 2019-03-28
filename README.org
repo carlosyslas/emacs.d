@@ -146,6 +146,13 @@
        (eyebrowse-mode t))
    #+END_SRC
 
+** Evil
+   #+BEGIN_SRC emacs-lisp
+     (use-package evil
+       :config
+       (evil-mode 1))
+   #+END_SRC
+
 ** Version Control
    Install [[https://magit.vc/][magit]] and make it so it always opens in the same window instead of opennig a new one.
    #+BEGIN_SRC emacs-lisp

@@ -100,8 +100,6 @@
 
 (blink-cursor-mode 0)
 
-(desktop-save-mode 1)
-
 ;; (require 'astrologit-mode)
 ; TODO: make mode for jest
 ; TODO: make mode for sport scores
